@@ -1,5 +1,5 @@
 
-# Xmlsoccer [![Build Status](https://secure.travis-ci.org/eifion/url_formatter.png)](https://secure.travis-ci.org/eifion/url_formatter.png)
+# Xmlsoccer
 
 This is a Ruby wrapper for the excellent soccer data Api that can be found at www.xmlsoccer.com
 
