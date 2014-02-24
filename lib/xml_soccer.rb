@@ -5,24 +5,28 @@ module Xmlsoccer
   
     DEMO = "Demo"
     FULL = "Full"
+
   class RequestManager
-    @api_type = "Demo"
-    @base_url
+    #@api_type = "Demo"
+    #@base_url
     
     
     attr_accessor :base_url, :api_type, :api_key
   
-    WAIT = 'Wait 5 minutes between calls'
+    DEMO_URL = "http://www.xmlsoccer.com/FootballDataDemo.asmx?WSDL"
+    FULL_URL = "http://www.xmlsoccer.com/FootballData.asmx?WSDL"
+    WAIT = 'Wait 5 minutes between calls'    
   
   
     def initialize(options={})
       @api_key = options[:api_key]
-      @api_type = options[:api_type]
-      if @api_type == DEMO
-        @base_url = "http://www.xmlsoccer.com/FootballDataDemo.asmx?WSDL"
-      elsif @api_type == FULL
-        @base_url = "http://www.xmlsoccer.com/FootballData.asmx?WSDL"
+      @api_type = options.fetch(:api_type, DEMO)
+
+      case @api_type
+      when DEMO then @base_url = DEMO_URL
+      when FULL then @base_url = FULL_URL
       end
+      
       @client = Savon.client(wsdl: @base_url)
     end
   
