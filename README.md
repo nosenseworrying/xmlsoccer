@@ -3,7 +3,7 @@
 
 This is a Ruby wrapper for the excellent soccer data Api that can be found at www.xmlsoccer.com
 
-The API has data for all of the major leagues for both current and historic matches.
+This particular gem is a rewrite/refactoring of the xmlsoccer gem (https://github.com/kavinderd/xmlsoccer)
 
 ## Installation
 
@@ -46,7 +46,7 @@ As time permits I will add extensive Ruby specific documentation to the Wiki for
 
 ## Contributing
 
-1. Fork it
+1. Fork it ( https://github.com/nosenseworrying/xmlsoccer/fork )
 2. Create your feature branch (`git checkout -b my-new-feature`)
 3. Commit your changes (`git commit -am 'Added some feature'`)
 4. Push to the branch (`git push origin my-new-feature`)
