@@ -1,7 +1,7 @@
 module Xmlsoccer
   class RequestManager
     attr_accessor :base_url, :api_type, :api_key
-  
+
     DEMO_URL = "http://www.xmlsoccer.com/FootballDataDemo.asmx?WSDL"
     FULL_URL = "http://www.xmlsoccer.com/FootballData.asmx?WSDL"
     WAIT = 'Wait 5 minutes between calls'    
@@ -17,7 +17,7 @@ module Xmlsoccer
 
       @client = Savon.client(wsdl: @base_url)
     end
-  
+
     def get_all_leagues
       if @last_call && @last_call > 60.minutes.ago
           return WAIT
@@ -27,7 +27,7 @@ module Xmlsoccer
         return response.hash[:envelope][:body][:get_all_leagues_response][:get_all_leagues_result][:xmlsoccer_com][:league]
       end
     end
-  
+
     def get_all_teams
        if  @last_call && @last_call > 60.minutes.ago
           return WAIT
@@ -37,7 +37,7 @@ module Xmlsoccer
           return response.hash[:envelope][:body][:get_all_teams_response][:get_all_teams_result][:xmlsoccer_com][:team]
        end
     end
-  
+
     def get_teams_in_league(league, season_year)
       if  @last_call && @last_call > 5.minutes.ago
         return WAIT
@@ -48,7 +48,7 @@ module Xmlsoccer
         return response.hash[:envelope][:body][:get_all_teams_by_league_and_season_response][:get_all_teams_by_league_and_season_result][:xmlsoccer_com][:team]
       end
     end
-  
+
     def get_fixtures_by_date_interval(start_date, end_date)
       
       if  @last_call && @last_call > 5.minutes.ago
@@ -63,7 +63,7 @@ module Xmlsoccer
         return response.hash[:envelope][:body][:get_fixtures_by_date_interval_response][:get_fixtures_by_date_interval_result][:xmlsoccer_com][:match]
       end
     end
-  
+
     def get_fixtures_by_date_interval_and_league(league, start_date, end_date)
       if  @last_call && @last_call > 5.minutes.ago
         return WAIT
@@ -79,7 +79,7 @@ module Xmlsoccer
         return response[:envelope][:body][:get_fixtures_by_date_interval_and_league_response][:get_fixtures_by_date_interval_and_league_result][:xmlsoccer_com][:match]
       end
     end
-  
+
     def get_fixtures_by_date_interval_and_team(team, start_date, end_date)
       if  @last_call && @last_call > 5.minutes.ago
         return WAIT
@@ -95,7 +95,7 @@ module Xmlsoccer
         return response[:envelope][:body][:get_fixtures_by_date_interval_and_team_response][:get_fixtures_by_date_interval_and_team_result][:xmlsoccer_com][:match]
       end
     end
-  
+
     def get_historic_matches_by_fixture_match_id(fixture_id)
       if  @last_call && @last_call > 5.minutes.ago
         return WAIT
@@ -110,7 +110,7 @@ module Xmlsoccer
         return matches
       end
     end
-  
+
     def get_historic_matches_by_id(match_id)
       if  @last_call && @last_call > 5.minutes.ago
         return WAIT
@@ -125,7 +125,7 @@ module Xmlsoccer
         return matches
       end
     end
-  
+
     def get_historic_matches_by_league_and_date_interval(league, start_date, end_date)
       if  @last_call && @last_call > 5.minutes.ago
         return WAIT
@@ -142,7 +142,7 @@ module Xmlsoccer
         return matches
       end
     end
-  
+
     def get_historic_matches_by_league_and_season(league, interval)
       if  @last_call && @last_call > 5.minutes.ago
         return WAIT
@@ -157,7 +157,7 @@ module Xmlsoccer
         return matches
       end
     end
-  
+
     def get_historic_matches_by_team_and_date_interval(team, start_date, end_date)
       if  @last_call && @last_call > 5.minutes.ago
         return WAIT
@@ -174,7 +174,7 @@ module Xmlsoccer
         return matches
       end
     end
-  
+
     def get_historic_matches_by_teams_and_date_interval(team_1, team_2, start_date, end_date)
       if  @last_call && @last_call > 5.minutes.ago
         return WAIT
@@ -193,4 +193,4 @@ module Xmlsoccer
       end
     end
   end
-end
+end  

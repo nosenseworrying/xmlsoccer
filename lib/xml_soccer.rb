@@ -1,7 +1,7 @@
 require "xml_soccer/version"
 
 module Xmlsoccer
-  
+  class XmlSoccer
     DEMO = "Demo"
     FULL = "Full"
 
@@ -15,5 +15,5 @@ module Xmlsoccer
     def leagues
       @request_manager.get_all_leagues
     end
-
+  end
 end
