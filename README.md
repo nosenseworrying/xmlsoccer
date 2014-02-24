@@ -9,7 +9,7 @@ The API has data for all of the major leagues for both current and historic matc
 
 Add this line to your application's Gemfile:
 
-    gem 'xmlsoccer'
+    gem 'xml_soccer'
 
 And then execute:
 
@@ -17,7 +17,7 @@ And then execute:
 
 Or install it yourself as:
 
-    $ gem install xmlsoccer
+    $ gem install xml_soccer
 
 ## Usage
 
