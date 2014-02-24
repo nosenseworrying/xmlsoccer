@@ -1,9 +1,11 @@
 require "xml_soccer/version"
+require "xml_soccer/request_manager"
 
 module Xmlsoccer
-  class XmlSoccer
-    DEMO = "Demo"
-    FULL = "Full"
+  DEMO = "Demo"
+  FULL = "Full"
+
+  class XmlSoccerWrapper
 
     def initialize(options={})
       @api_key = options[:api_key]
@@ -15,5 +17,7 @@ module Xmlsoccer
     def leagues
       @request_manager.get_all_leagues
     end
+
   end
+
 end
