@@ -1,6 +1,6 @@
 require 'savon'
 
-module Xmlsoccer
+module XmlSoccer
   class RequestManager
     attr_accessor :base_url, :api_type, :api_key
 

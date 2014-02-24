@@ -1,7 +1,7 @@
 require "xml_soccer/version"
 require "xml_soccer/request_manager"
 
-module Xmlsoccer
+module XmlSoccer
   DEMO = "Demo"
   FULL = "Full"
 
@@ -9,7 +9,7 @@ module Xmlsoccer
 
     def initialize(options={})
       @api_key = options[:api_key]
-      @api_type = options.fetch(:api_type, Xmlsoccer::DEMO)
+      @api_type = options.fetch(:api_type, XmlSoccer::DEMO)
 
       @request_manager = RequestManager.new(api_key: @api_key, api_type: @api_type)
     end

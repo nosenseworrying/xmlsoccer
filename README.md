@@ -1,5 +1,5 @@
 
-# Xmlsoccer
+# XmlSoccer
 
 This is a Ruby wrapper for the excellent soccer data Api that can be found at www.xmlsoccer.com
 
@@ -32,9 +32,9 @@ Currently there is not support for Live Match Data.
 Example Use:
 
 XmlSoccer Api GetAllLeagues
-(You must have an API Key and know which type to use.  Currently there are two types Xmlsoccer::DEMO and Xmlsoccer::FULL)
+(You must have an API Key and know which type to use.  Currently there are two types XmlSoccer::DEMO and XmlSoccer::FULL)
 
-	xmlsoccer_client = Xmlsoccer::RequestManager.new(api_key: 'Api_key', api_type:'Api_Type')
+	xmlsoccer_client = XmlSoccer::RequestManager.new(api_key: 'Api_key', api_type:'Api_Type')
 
 	leagues = xmlsoccer_client.get_all_leagues
 

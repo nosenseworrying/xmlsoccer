@@ -3,7 +3,7 @@ require 'spec_helper'
 require "savon/mock/spec_helper"
 require "fixtures/request_manager/hashed_responses"
 
-describe Xmlsoccer do
+describe XmlSoccer do
   
   include Savon::SpecHelper
   include HashedResponses
@@ -12,22 +12,22 @@ describe Xmlsoccer do
   after(:all)  { savon.unmock! }
   
   it 'returns correct string for DEMO' do
-    expect(Xmlsoccer::DEMO).to eq('Demo')
+    expect(XmlSoccer::DEMO).to eq('Demo')
   end
   
   it 'returns correct string for FULL' do
-    expect(Xmlsoccer::FULL).to eq('Full')
+    expect(XmlSoccer::FULL).to eq('Full')
   end
   
-  describe Xmlsoccer::RequestManager do
+  describe XmlSoccer::RequestManager do
      
     
     it 'initializes with an api key and version' do
-      (Xmlsoccer::RequestManager.new(api_key: 'testkey', api_type: Xmlsoccer::DEMO)).should be_an_instance_of(Xmlsoccer::RequestManager)
+      (XmlSoccer::RequestManager.new(api_key: 'testkey', api_type: XmlSoccer::DEMO)).should be_an_instance_of(XmlSoccer::RequestManager)
     end
     
     before do 
-      @client = Xmlsoccer::RequestManager.new(api_key: 'testkey', api_type: Xmlsoccer::FULL)
+      @client = XmlSoccer::RequestManager.new(api_key: 'testkey', api_type: XmlSoccer::FULL)
     end
     
     it 'returns valid api key' do
@@ -35,7 +35,7 @@ describe Xmlsoccer do
     end
     
     it 'returns valid api type' do
-      expect(@client.api_type).to eq(Xmlsoccer::FULL)
+      expect(@client.api_type).to eq(XmlSoccer::FULL)
     end
     
     
