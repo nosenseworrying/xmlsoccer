@@ -34,9 +34,7 @@ Example Use:
 XmlSoccer API GetAllLeagues
 (You must have an API Key and know which type to use.  Currently there are two types XmlSoccer::DEMO and XmlSoccer::FULL)
 
-  include XmlSoccer
-
-	xmlsoccer = XmlSoccerWrapper.new(api_key: 'Api_key', api_type:'Api_Type')
+	xmlsoccer = XmlSoccer.new(api_key: 'Api_key', api_type:'Api_Type')
 
 	leagues = xmlsoccer.leagues
 

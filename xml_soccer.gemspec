@@ -1,5 +1,6 @@
 # -*- encoding: utf-8 -*-
-require File.expand_path('../lib/xml_soccer/version', __FILE__)
+#require File.expand_path('../lib/xml_soccer/version', __FILE__)
+require 'xml_soccer'
 
 Gem::Specification.new do |gem|
   gem.authors       = ["Matt Augustine"]
