@@ -2,7 +2,7 @@ require 'savon'
 
 module XmlSoccer
   class RequestManager
-    attr_accessor :base_url, :api_type, :api_key
+    attr_accessor :api_key, :client
 
     DEMO_URL = "http://www.xmlsoccer.com/FootballDataDemo.asmx?WSDL"
     FULL_URL = "http://www.xmlsoccer.com/FootballData.asmx?WSDL"
@@ -10,21 +10,22 @@ module XmlSoccer
     
     def initialize(options={})
       @api_key = options[:api_key]
-      @api_type = options[:api_type]
+      api_type = options[:api_type]
 
-      case @api_type
-      when DEMO then @base_url = DEMO_URL
-      when FULL then @base_url = FULL_URL
+      case api_type
+      when DEMO then base_url = DEMO_URL
+      when FULL then base_url = FULL_URL
       end
 
-      @client = Savon.client(wsdl: @base_url)
+      @client = Savon.client(wsdl: base_url)
     end
 
     def get_all_leagues
+    #def leagues
       if @last_call && @last_call > 60.minutes.ago
           return WAIT
       else
-        response = @client.call(:get_all_leagues, message:{"ApiKey" => @api_key})
+        response = client.call(:get_all_leagues, message:{"ApiKey" => api_key})
         @last_call =Time.now
         return response.hash[:envelope][:body][:get_all_leagues_response][:get_all_leagues_result][:xmlsoccer_com][:league]
       end
@@ -34,7 +35,7 @@ module XmlSoccer
        if  @last_call && @last_call > 60.minutes.ago
           return WAIT
        else
-          response = @client.call(:get_all_teams, message:{"ApiKey" => @api_key})
+          response = client.call(:get_all_teams, message:{"ApiKey" => api_key})
           @last_call =Time.now
           return response.hash[:envelope][:body][:get_all_teams_response][:get_all_teams_result][:xmlsoccer_com][:team]
        end
@@ -45,7 +46,7 @@ module XmlSoccer
         return WAIT
       else
         
-        response = @client.call(:get_all_teams_by_league_and_season, message: {"ApiKey" => @api_key, "league" => league, "seasonDateString" => season_year})
+        response = client.call(:get_all_teams_by_league_and_season, message: {"ApiKey" => api_key, "league" => league, "seasonDateString" => season_year})
         @last_call = Time.now
         return response.hash[:envelope][:body][:get_all_teams_by_league_and_season_response][:get_all_teams_by_league_and_season_result][:xmlsoccer_com][:team]
       end
@@ -56,12 +57,10 @@ module XmlSoccer
       if  @last_call && @last_call > 5.minutes.ago
         return WAIT
       else
-        api_key = @api_key
-        response = @client.call(:get_fixtures_by_date_interval) do
-          message("ApiKey" => api_key,
+        response = client.call(:get_fixtures_by_date_interval,
+          message: {"ApiKey" => api_key,
                       "startDateString" => start_date.strftime("%Y-%m-%d"),
-                      "endDateString" => end_date.strftime("%Y-%m-%d"))
-        end          
+                      "endDateString" => end_date.strftime("%Y-%m-%d")})
         return response.hash[:envelope][:body][:get_fixtures_by_date_interval_response][:get_fixtures_by_date_interval_result][:xmlsoccer_com][:match]
       end
     end
@@ -70,8 +69,8 @@ module XmlSoccer
       if  @last_call && @last_call > 5.minutes.ago
         return WAIT
       else
-        api_key = @api_key
-        response = @client.call(:get_fixtures_by_date_interval_and_league) do
+        #api_key = @api_key
+        response = client.call(:get_fixtures_by_date_interval_and_league) do
           message("ApiKey" => api_key,
                       "league" => league,
                       "startDateString" => start_date.strftime("%Y-%m-%d"),
@@ -86,8 +85,8 @@ module XmlSoccer
       if  @last_call && @last_call > 5.minutes.ago
         return WAIT
       else
-        api_key = @api_key
-        response = @client.call(:get_fixtures_by_date_interval_and_team) do
+        #api_key = @api_key
+        response = client.call(:get_fixtures_by_date_interval_and_team) do
           message("ApiKey" => api_key,
                       "team" => league,
                       "startDateString" => start_date.strftime("%Y-%m-%d"),
@@ -102,8 +101,8 @@ module XmlSoccer
       if  @last_call && @last_call > 5.minutes.ago
         return WAIT
       else
-        api_key = @api_key
-        response = @client.call(:get_historic_matches_by_fixture_match_id) do
+        #api_key = @api_key
+        response = client.call(:get_historic_matches_by_fixture_match_id) do
           message("ApiKey" => api_key,
                       "id" => id)
         end
@@ -117,8 +116,8 @@ module XmlSoccer
       if  @last_call && @last_call > 5.minutes.ago
         return WAIT
       else
-        api_key = @api_key
-        response = @client.call(:get_historic_matches_by_id) do
+        #api_key = @api_key
+        response = client.call(:get_historic_matches_by_id) do
           message("ApiKey" => api_key,
                       "id" => id)
         end
@@ -132,8 +131,8 @@ module XmlSoccer
       if  @last_call && @last_call > 5.minutes.ago
         return WAIT
       else
-        api_key = @api_key
-        response = @client.call(:get_historic_matches_by_league_and_date_interval) do
+        #api_key = @api_key
+        response = client.call(:get_historic_matches_by_league_and_date_interval) do
           message("ApiKey" => api_key,
                       "league" => league, 
                       "startDateString" => start_date.strftime("%Y-%m-%d"),
@@ -149,8 +148,8 @@ module XmlSoccer
       if  @last_call && @last_call > 5.minutes.ago
         return WAIT
       else
-        api_key = @api_key
-        response = @client.call(:get_historic_matches_by_league_and_season) do
+        #api_key = @api_key
+        response = client.call(:get_historic_matches_by_league_and_season) do
           message("ApiKey" => api_key,
                       "league" => league, "seasonDateString" => interval)
         end
@@ -164,8 +163,8 @@ module XmlSoccer
       if  @last_call && @last_call > 5.minutes.ago
         return WAIT
       else
-        api_key = @api_key
-        response = @client.call(:get_historic_matches_by_team_and_date_interval) do
+        #api_key = @api_key
+        response = client.call(:get_historic_matches_by_team_and_date_interval) do
           message("ApiKey" => api_key,
                       "teamId" => team,
                       "startDateString" => start_date.strftime("%Y-%m-%d"),
@@ -181,8 +180,8 @@ module XmlSoccer
       if  @last_call && @last_call > 5.minutes.ago
         return WAIT
       else
-        api_key = @api_key
-        response = @client.call(:get_historic_matches_by_teams_and_date_interval) do
+        #api_key = @api_key
+        response = client.call(:get_historic_matches_by_teams_and_date_interval) do
           message("ApiKey" => api_key,
                       "team1Id" => team_1,
                       "team2Id" => team_2,
