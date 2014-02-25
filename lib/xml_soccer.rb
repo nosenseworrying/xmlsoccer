@@ -1,5 +1,6 @@
 #require "xml_soccer/version"
 require 'savon'
+require 'active_support/time'
 
 class XmlSoccer
   VERSION = "0.0.1"
@@ -46,7 +47,7 @@ class XmlSoccer
     end
   end
 
-  def teams_in_league(league, season_year)
+  def teams_in_league_by_season(league, season_year)
     if last_call > 5.minutes.ago
       return WAIT
     else      
