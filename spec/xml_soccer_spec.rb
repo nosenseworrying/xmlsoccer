@@ -1,7 +1,7 @@
 # encoding: utf-8
 require 'spec_helper'
 require 'savon/mock/spec_helper'
-require 'fixtures/request_manager/hashed_responses'
+require 'fixtures/hashed_responses'
 require 'active_support/time'
 
 describe XmlSoccer do
@@ -31,7 +31,7 @@ describe XmlSoccer do
   describe '#leagues' do
     before do
         message = {"ApiKey" => "testkey"}
-        fixture = File.read("spec/fixtures/request_manager/get_all_leagues.xml")
+        fixture = File.read("spec/fixtures/get_all_leagues.xml")
 
         response = {code: 200, headers: {}, body: fixture}
         savon.expects(:get_all_leagues).with(message: message).returns(response)
@@ -50,7 +50,7 @@ describe XmlSoccer do
   describe '#teams' do 
     before do
       message = {"ApiKey" => "testkey"}
-      fixture = File.read("spec/fixtures/request_manager/get_all_teams.xml")
+      fixture = File.read("spec/fixtures/get_all_teams.xml")
 
       response = {code: 200, headers: {}, body: fixture}
       savon.expects(:get_all_teams).with(message: message).returns(response)
@@ -70,10 +70,10 @@ describe XmlSoccer do
     before do
       message = {"ApiKey" => "testkey",
                   "league" => "English Premier League", "seasonDateString" => "1011"}
-      fixture = File.read("spec/fixtures/request_manager/get_all_teams_by_league_and_season.xml")                                  
+      fixture = File.read("spec/fixtures/get_all_teams_by_league_and_season.xml")                                  
       response = {code: 200, headers: {}, body: fixture}
       savon.expects(:get_all_teams_by_league_and_season).with(message: message).returns(response)
-      @array = @client.teams_in_league_by_season("English Premier League", "1011")
+      @array = @client.teams_in_league_by_season(league: "English Premier League", season: "1011")
     end
     
     it 'returns an array' do
@@ -91,10 +91,10 @@ describe XmlSoccer do
       message = {"ApiKey" => "testkey",
                   "startDateString" => "2014-01-03",
                   "endDateString" => "2014-01-06"}
-      fixture = File.read("spec/fixtures/request_manager/get_fixtures_by_date_interval.xml")
+      fixture = File.read("spec/fixtures/get_fixtures_by_date_interval.xml")
       response = {code: 200, headers: {}, body: fixture}
       savon.expects(:get_fixtures_by_date_interval).with(message: message).returns(response)
-      @array = @client.fixtures_by_date(Date.new(2014,1,3), Date.new(2014,1,6))      
+      @array = @client.fixtures_by_date(start_date: Date.new(2014,1,3), end_date: Date.new(2014,1,6))      
     end
 
     it 'returns an array' do
@@ -105,8 +105,27 @@ describe XmlSoccer do
       expect(@array).to include(HashedResponses::GetFixturesByDateInterval)
     end
   end
-  
-  it 'gets fixtures by date interval and league'
+
+  describe '#fixtures_by_date_and_league' do
+    before do
+      message = {"ApiKey" => "testkey",
+                  "league" => "Scottish Premier League",
+                  "startDateString" => "2014-01-03",
+                  "endDateString" => "2014-01-06"}
+      fixture = File.read("spec/fixtures/get_fixtures_by_date_interval_and_league.xml")
+      response = {code: 200, headers: {}, body: fixture}
+      savon.expects(:get_fixtures_by_date_interval_and_league).with(message: message).returns(response)
+      @array = @client.fixtures_by_date_and_league(league: "Scottish Premier League", start_date: Date.new(2014,1,3), end_date: Date.new(2014,1,6))      
+    end
+
+    it 'returns an array' do
+      expect(@array).to be_an_instance_of(Array)
+    end
+    
+    it 'returns expected fixtures' do
+      expect(@array).to include(HashedResponses::GetFixturesByDateIntervalAndLeague)
+    end
+  end
   
   it 'gets fixtures by date interval and team'
   

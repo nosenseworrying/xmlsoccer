@@ -15,4 +15,10 @@ module HashedResponses
                                 away_team_yellow_card_details: "49': Asier Illarramendi;", 
                                 home_team_red_card_details: nil, away_team_red_card_details: nil }
 
+  GetFixturesByDateIntervalAndLeague = { id: "324725", date: DateTime.parse("2014-01-04T07:00:00-08:00"), league: "Scottish Premier League", round: "21", 
+                                          home_team: "Ross County", home_team_id: "360", home_goals: "1", away_team: "St Johnstone", away_team_id: "46",
+                                          away_goals: "0", time: "Finished", location: "Victoria Park", home_team_yellow_card_details: "89': Scott Boyd;", 
+                                          away_team_yellow_card_details: "61': David Mackay;", home_team_red_card_details: nil, 
+                                          away_team_red_card_details: nil }
+
 end

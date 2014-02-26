@@ -47,17 +47,17 @@ class XmlSoccer
     end
   end
 
-  def teams_in_league_by_season(league, season_year)
+  def teams_in_league_by_season(league: nil, season: nil)
     if last_call > 5.minutes.ago
       return WAIT
     else      
-      response = client.call(:get_all_teams_by_league_and_season, message: {"ApiKey" => api_key, "league" => league, "seasonDateString" => season_year})
+      response = client.call(:get_all_teams_by_league_and_season, message: {"ApiKey" => api_key, "league" => league, "seasonDateString" => season})
       self.last_call = Time.now
       return response.hash[:envelope][:body][:get_all_teams_by_league_and_season_response][:get_all_teams_by_league_and_season_result][:xmlsoccer_com][:team]
     end
   end 
 
-  def fixtures_by_date(start_date, end_date)    
+  def fixtures_by_date(start_date: nil, end_date: nil)
     if last_call > 5.minutes.ago
       return WAIT
     else
@@ -70,7 +70,7 @@ class XmlSoccer
     end
   end
 
-  def fixtures_by_date_and_league(league, start_date, end_date)
+  def fixtures_by_date_and_league(league: nil, start_date: nil, end_date: nil)
     if last_call > 5.minutes.ago
       return WAIT
     else
@@ -84,7 +84,7 @@ class XmlSoccer
     end
   end
 
-  def fixtures_by_date_and_team(team, start_date, end_date)
+  def fixtures_by_date_and_team(team: nil, start_date: nil, end_date: nil)
     if last_call > 5.minutes.ago
       return WAIT
     else
@@ -98,7 +98,7 @@ class XmlSoccer
     end
   end  
 
-  def historic_match_by_fixture(fixture_id)
+  def historic_match_by_fixture(fixture_id: nil)
     if last_call > 5.minutes.ago
       return WAIT
     else
@@ -110,7 +110,7 @@ class XmlSoccer
     end
   end
 
-  def historic_match(match_id)
+  def historic_match(match_id: nil)
     if last_call > 5.minutes.ago
       return WAIT
     else
@@ -122,7 +122,7 @@ class XmlSoccer
     end
   end
 
-  def historic_matches_by_league_and_date(league, start_date, end_date)
+  def historic_matches_by_league_and_date(league: nil, start_date: nil, end_date: nil)
     if last_call > 5.minutes.ago
       return WAIT
     else
@@ -136,19 +136,19 @@ class XmlSoccer
     end
   end  
 
-  def historic_matches_by_league_and_season(league, interval)
+  def historic_matches_by_league_and_season(league: nil, season: nil)
     if last_call > 5.minutes.ago
       return WAIT
     else
       response = client.call(:get_historic_matches_by_league_and_season,
         message: {"ApiKey" => api_key,
-                    "league" => league, "seasonDateString" => interval})
+                    "league" => league, "seasonDateString" => season})
       self.last_call = Time.now          
       return response.hash[:envelope][:body][:get_historic_matches_by_league_and_season_response][:get_historic_matches_by_league_and_season_result][:xmlsoccer_com][:match]
     end
   end  
 
-  def historic_matches_by_team_and_date(team, start_date, end_date)
+  def historic_matches_by_team_and_date(team: nil, start_date: nil, end_date: nil)
     if last_call > 5.minutes.ago
       return WAIT
     else
@@ -162,7 +162,7 @@ class XmlSoccer
     end
   end  
 
-  def historic_matches_by_teams_and_date(team_1, team_2, start_date, end_date)
+  def historic_matches_by_teams_and_date(team_1: nil, team_2: nil, start_date: nil, end_date: nil)
     if last_call > 5.minutes.ago
       return WAIT
     else

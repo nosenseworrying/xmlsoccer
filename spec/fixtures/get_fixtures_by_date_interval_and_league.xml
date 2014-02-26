@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Envelope>
+  <Body>
+    <GetFixturesByDateIntervalAndLeagueResponse>
+      <GetFixturesByDateIntervalAndLeagueResult>
+        <XMLSOCCER.COM>
+          <Match>
+            <Id>324725</Id>
+            <Date>2014-01-04T07:00:00-08:00</Date>
+            <League>Scottish Premier League</League>
+            <Round>21</Round>
+            <HomeTeam>Ross County</HomeTeam>
+            <HomeTeam_Id>360</HomeTeam_Id>
+            <HomeGoals>1</HomeGoals>
+            <AwayTeam>St Johnstone</AwayTeam>
+            <AwayTeam_Id>46</AwayTeam_Id>
+            <AwayGoals>0</AwayGoals>
+            <Time>Finished</Time>
+            <Location>Victoria Park</Location>
+            <HomeTeamYellowCardDetails>89': Scott Boyd;</HomeTeamYellowCardDetails>
+            <AwayTeamYellowCardDetails>61': David Mackay;</AwayTeamYellowCardDetails>
+            <HomeTeamRedCardDetails />
+            <AwayTeamRedCardDetails />
+          </Match>
+          <Match>
+            <Id>324726</Id>
+            <Date>2014-01-05T04:45:00-08:00</Date>
+            <League>Scottish Premier League</League>
+            <Round>21</Round>
+            <HomeTeam>St Mirren</HomeTeam>
+            <HomeTeam_Id>56</HomeTeam_Id>
+            <HomeGoals>0</HomeGoals>
+            <AwayTeam>Celtic</AwayTeam>
+            <AwayTeam_Id>54</AwayTeam_Id>
+            <AwayGoals>4</AwayGoals>
+            <Time>Finished</Time>
+            <Location>St. Mirren Park</Location>
+            <HomeTeamYellowCardDetails>78': Lee Mair;</HomeTeamYellowCardDetails>
+            <AwayTeamYellowCardDetails>90': Efe Ambrose;89': Emilio Izaguirre;33': Scott Brown;</AwayTeamYellowCardDetails>
+            <HomeTeamRedCardDetails />
+            <AwayTeamRedCardDetails />
+          </Match>      
+        </XMLSOCCER.COM>
+      </GetFixturesByDateIntervalAndLeagueResult>
+    </GetFixturesByDateIntervalAndLeagueResponse>
+  </Body>
+</Envelope>          

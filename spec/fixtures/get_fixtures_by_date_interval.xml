@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Envelope>
+  <Body>
+    <GetFixturesByDateIntervalResponse>
+      <GetFixturesByDateIntervalResult>
+        <XMLSOCCER.COM>
+          <Match>
+            <Id>287180</Id>
+            <Date>2013-02-22T21:30:00+01:00</Date>
+            <League>La Liga</League>
+            <Round>25</Round>
+            <HomeTeam>Ath Bilbao</HomeTeam>
+            <HomeTeam_Id>143</HomeTeam_Id>
+            <HomeGoals>1</HomeGoals>
+            <AwayTeam>Sociedad</AwayTeam>
+            <AwayTeam_Id>140</AwayTeam_Id>
+            <AwayGoals>3</AwayGoals>
+            <Time>Finished</Time>
+            <Location>San Mam?s</Location>
+            <BetAtHome>2,20</BetAtHome>
+            <BetAtDraw>3,35</BetAtDraw>
+            <BetAtAway>3,15</BetAtAway>
+            <BetAtHomeLink>http://affiliates.bet-at-home.com/processing/clickthrgh.asp?btag=a_62598b_303</BetAtHomeLink>
+            <InterwettenHome>2,10</InterwettenHome>
+            <InterwettenDraw>3,30</InterwettenDraw>
+            <InterwettenAway>3,30</InterwettenAway>
+            <InterwettenLink>https://www.interwetten.com/en/sportsbook/e/9752883/</InterwettenLink>
+            <HomeTeamYellowCardDetails>84': Iker Muniain;45': Ander Iturraspe;38': Aymeric Laporte;</HomeTeamYellowCardDetails>
+            <AwayTeamYellowCardDetails>49': Asier Illarramendi;</AwayTeamYellowCardDetails>
+            <HomeTeamRedCardDetails/>
+            <AwayTeamRedCardDetails/>
+          </Match>
+          <Match>
+            <Id>286593</Id>
+            <Date>2013-02-22T21:00:00+01:00</Date>
+            <League>Serie B</League>
+            <Round>27</Round>
+            <HomeTeam>Spezia</HomeTeam>
+            <HomeTeam_Id>295</HomeTeam_Id>
+            <HomeGoals>0</HomeGoals>
+            <AwayTeam>Novara</AwayTeam>
+            <AwayTeam_Id>82</AwayTeam_Id>
+            <AwayGoals>6</AwayGoals>
+            <Time>Finished</Time>
+            <Location>Stadio Alberto Picco</Location>
+            <BetAtHome>2,10</BetAtHome>
+            <BetAtDraw>2,85</BetAtDraw>
+            <BetAtAway>3,50</BetAtAway>
+            <BetAtHomeLink>http://affiliates.bet-at-home.com/processing/clickthrgh.asp?btag=a_62598b_303</BetAtHomeLink>
+            <HomeTeamYellowCardDetails/>
+            <AwayTeamYellowCardDetails/>
+            <HomeTeamRedCardDetails/>
+            <AwayTeamRedCardDetails/>
+          </Match>          
+        </XMLSOCCER.COM>
+      </GetFixturesByDateIntervalResult>
+    </GetFixturesByDateIntervalResponse>
+  </Body>
+</Envelope>          
