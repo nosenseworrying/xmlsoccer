@@ -24,14 +24,15 @@ class XmlSoccer
 
     @client = Savon.client(wsdl: base_url)
     self.last_call = 1.day.ago
+    @last_api_calls = Hash.new(1.day.ago)
   end
 
   def leagues
-    if last_call > 60.minutes.ago
-        return WAIT
+    if @last_api_calls[:get_all_leagues] > 60.minutes.ago
+        puts "You can call :get_all_leagues again at #{self.last_api_calls[:get_all_leagues] + 60.minutes}"
     else
-      response = client.call(:get_all_leagues, message:{"ApiKey" => api_key})
-      self.last_call = Time.now
+      #response = client.call(:get_all_leagues, message:{"ApiKey" => api_key})
+      @last_api_calls[:get_all_leagues] = Time.now
       return response.hash[:envelope][:body][:get_all_leagues_response][:get_all_leagues_result][:xmlsoccer_com][:league]
     end      
   end
