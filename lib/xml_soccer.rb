@@ -33,7 +33,7 @@ class XmlSoccer
     else
       #response = client.call(:get_all_leagues, message:{"ApiKey" => api_key})
       @last_api_calls[:get_all_leagues] = Time.now
-      return response.hash[:envelope][:body][:get_all_leagues_response][:get_all_leagues_result][:xmlsoccer_com][:league]
+      #return response.hash[:envelope][:body][:get_all_leagues_response][:get_all_leagues_result][:xmlsoccer_com][:league]
     end      
   end
 
