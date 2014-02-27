@@ -13,7 +13,7 @@ This gem requires Ruby 2.0 or greater, due to the use of keyword arguments in me
 
 Add this line to your application's Gemfile:
 
-    gem 'xml_soccer'
+    gem "xml_soccer", "~> 0.0.1.pre1"
 
 And then execute:
 
@@ -21,7 +21,7 @@ And then execute:
 
 Or install it yourself as:
 
-    $ gem install xml_soccer
+    $ gem install xml_soccer --pre
 
 ## Usage
 
