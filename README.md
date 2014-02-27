@@ -1,7 +1,7 @@
 
 # XmlSoccer
 
-This is a Ruby wrapper for the excellent soccer data Api that can be found at www.xmlsoccer.com
+This is a Ruby wrapper for the excellent soccer data API that can be found at www.xmlsoccer.com
 
 This particular gem is a rewrite/refactoring of the xmlsoccer gem (https://github.com/kavinderd/xmlsoccer)
 
@@ -37,7 +37,7 @@ time check that will be more in line with the xmlsoccer.com limitations.
 You must have an xmlsoccer.com API Key and know which API type to use.  Currently there are two types: XmlSoccer::DEMO and XmlSoccer::FULL.
 Demo is the default if you do not explicitly provide a type.
 
-Example Use:
+Example Usage:
 
 xmlsoccer.com API GetAllLeagues
 
@@ -46,7 +46,7 @@ xmlsoccer.com API GetAllLeagues
 	leagues = xmlsoccer.leagues
 
 	leagues.each do |league|
-		put league[:name]
+		puts league[:name]
 	end
 
 The following methods are currently implemented:
