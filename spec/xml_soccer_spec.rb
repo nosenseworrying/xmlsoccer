@@ -38,13 +38,13 @@ describe XmlSoccer do
         @array = @client.leagues
     end
     
-     it 'returns an array' do
-       expect(@array).to be_an_instance_of(Array)
-      end
-      
-      it 'returns expected leagues' do
-        expect(@array).to include(HashedResponses::GetAllLeagues)
-      end
+    it 'returns an array' do
+     expect(@array).to be_an_instance_of(Array)
+    end
+
+    it 'returns expected leagues' do
+      expect(@array).to include(HashedResponses::GetAllLeagues)
+    end
   end
   
   describe '#teams' do 
