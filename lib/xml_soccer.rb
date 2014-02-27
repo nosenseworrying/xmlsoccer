@@ -3,7 +3,7 @@ require 'savon'
 require 'active_support/time'
 
 class XmlSoccer
-  VERSION = "0.0.1"
+  VERSION = "0.0.1.pre1"
   DEMO = "Demo"
   FULL = "Full"
   DEMO_URL = "http://www.xmlsoccer.com/FootballDataDemo.asmx?WSDL"
