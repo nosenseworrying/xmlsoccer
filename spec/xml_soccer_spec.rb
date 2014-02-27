@@ -96,10 +96,6 @@ describe XmlSoccer do
       savon.expects(:get_fixtures_by_date_interval).with(message: message).returns(response)
       @array = @client.fixtures_by_date(start_date: Date.new(2014,1,3), end_date: Date.new(2014,1,6))      
     end
-
-    it 'returns an array' do
-      expect(@array).to be_an_instance_of(Array)
-    end
     
     it 'returns expected fixtures' do
       expect(@array).to include(HashedResponses::GetFixturesByDateInterval)
@@ -117,29 +113,126 @@ describe XmlSoccer do
       savon.expects(:get_fixtures_by_date_interval_and_league).with(message: message).returns(response)
       @array = @client.fixtures_by_date_and_league(league: "Scottish Premier League", start_date: Date.new(2014,1,3), end_date: Date.new(2014,1,6))      
     end
-
-    it 'returns an array' do
-      expect(@array).to be_an_instance_of(Array)
-    end
     
     it 'returns expected fixtures' do
       expect(@array).to include(HashedResponses::GetFixturesByDateIntervalAndLeague)
     end
   end
   
-  it 'gets fixtures by date interval and team'
+  describe '#fixtures_by_date_and_team' do
+    before do
+      message = {"ApiKey" => "testkey",
+                  "teamId" => "Ross County",
+                  "startDateString" => "2014-01-03",
+                  "endDateString" => "2014-01-06"}
+      fixture = File.read("spec/fixtures/get_fixtures_by_date_interval_and_team.xml")
+      response = {code: 200, headers: {}, body: fixture}
+      savon.expects(:get_fixtures_by_date_interval_and_team).with(message: message).returns(response)
+      @array = @client.fixtures_by_date_and_team(team: "Ross County", start_date: Date.new(2014,1,3), end_date: Date.new(2014,1,6))      
+    end
+    
+    it 'returns expected fixtures' do
+      expect(@array).to include(HashedResponses::GetFixturesByDateIntervalAndTeam)
+    end
+  end
   
-  it 'gets historic matches by fixture id'
+  describe '#historic_match_by_fixture' do
+    before do
+      message = {"ApiKey" => "testkey",
+                  "Id" => "324725" }
+      fixture = File.read("spec/fixtures/get_historic_matches_by_fixture_match_id.xml")
+      response = {code: 200, headers: {}, body: fixture}
+      savon.expects(:get_historic_matches_by_fixture_match_id).with(message: message).returns(response)
+      @array = @client.historic_match_by_fixture(fixture_id: "324725")      
+    end
+    
+    it 'returns expected match' do
+      expect(@array).to include(HashedResponses::GetHistoricMatchesByFixtureMatchId)
+    end
+  end
+
+  describe '#historic_match' do
+    before do
+      message = {"ApiKey" => "testkey",
+                  "Id" => "65805" }
+      fixture = File.read("spec/fixtures/get_historic_matches_by_id.xml")
+      response = {code: 200, headers: {}, body: fixture}
+      savon.expects(:get_historic_matches_by_id).with(message: message).returns(response)
+      @array = @client.historic_match(match_id: "65805")      
+    end
+    
+    it 'returns expected match' do
+      expect(@array).to include(HashedResponses::GetHistoricMatchesById)
+    end
+  end  
+
+  describe '#historic_matches_by_league_and_date' do
+    before do
+      message = {"ApiKey" => "testkey",
+                  "league" => "Scottish Premier League",
+                  "startDateString" => "2014-01-03",
+                  "endDateString" => "2014-01-06" }
+      fixture = File.read("spec/fixtures/get_historic_matches_by_league_and_date_interval.xml")
+      response = {code: 200, headers: {}, body: fixture}
+      savon.expects(:get_historic_matches_by_league_and_date_interval).with(message: message).returns(response)
+      @array = @client.historic_matches_by_league_and_date(league: "Scottish Premier League", start_date: Date.new(2014, 1, 3), end_date: Date.new(2014, 1, 6))
+    end
+    
+    it 'returns expected match' do
+      expect(@array).to include(HashedResponses::GetHistoricMatchesByLeagueAndDateInterval)
+    end
+  end
+
+  describe '#historic_matches_by_league_and_season' do
+    before do
+      message = {"ApiKey" => "testkey",
+                  "league" => "Scottish Premier League",
+                  "seasonDateString" => "" }
+      fixture = File.read("spec/fixtures/get_historic_matches_by_league_and_season.xml")
+      response = {code: 200, headers: {}, body: fixture}
+      savon.expects(:get_historic_matches_by_league_and_season).with(message: message).returns(response)
+      @array = @client.historic_matches_by_league_and_season(league: "Scottish Premier League", season: "")
+    end
+    
+    it 'returns expected match' do
+      expect(@array).to include(HashedResponses::GetHistoricMatchesByLeagueAndSeason)
+    end
+  end  
   
-  it 'gets historic match by id'
-  
-  it 'gets historic matches by league and date interval'
-  
-  it 'gets historic matches by league and season'
-  
-  it 'gets historic matches by team and date interval'
-  
-  it 'gets historic matches between teams date interval'
+  describe '#historic_matches_by_team_and_date' do
+    before do
+      message = {"ApiKey" => "testkey",
+                  "teamId" => "360",
+                  "startDateString" => "2014-01-03",
+                  "endDateString" => "2014-01-06" }
+      fixture = File.read("spec/fixtures/get_historic_matches_by_team_and_date_interval.xml")
+      response = {code: 200, headers: {}, body: fixture}
+      savon.expects(:get_historic_matches_by_team_and_date_interval).with(message: message).returns(response)
+      @array = @client.historic_matches_by_team_and_date(team: "360", start_date: Date.new(2014,1,3), end_date: Date.new(2014,1,6))
+    end
+    
+    it 'returns expected match' do
+      expect(@array).to include(HashedResponses::GetHistoricMatchesByTeamAndDateInterval)
+    end
+  end  
+
+  describe '#historic_matches_by_teams_and_date' do
+    before do
+      message = {"ApiKey" => "testkey",
+                  "team1Id" => "Ross County",
+                  "team2Id" => "St Johnstone",
+                  "startDateString" => "2014-01-03",
+                  "endDateString" => "2014-01-06" }
+      fixture = File.read("spec/fixtures/get_historic_matches_by_teams_and_date_interval.xml")
+      response = {code: 200, headers: {}, body: fixture}
+      savon.expects(:get_historic_matches_by_teams_and_date_interval).with(message: message).returns(response)
+      @array = @client.historic_matches_by_teams_and_date(team_1: "Ross County", team_2: "St Johnstone", start_date: Date.new(2014,1,3), end_date: Date.new(2014,1,6))
+    end
+    
+    it 'returns expected match' do
+      expect(@array).to include(HashedResponses::GetHistoricMatchesByTeamsAndDateInterval)
+    end
+  end
     
 end
 

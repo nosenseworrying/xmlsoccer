@@ -90,7 +90,7 @@ class XmlSoccer
     else
       response = client.call(:get_fixtures_by_date_interval_and_team,
         message: {"ApiKey" => api_key,
-                    "team" => league,
+                    "teamId" => team,
                     "startDateString" => start_date.strftime("%Y-%m-%d"),
                     "endDateString" => end_date.strftime("%Y-%m-%d")})
       self.last_call = Time.now
@@ -104,7 +104,7 @@ class XmlSoccer
     else
       response = client.call(:get_historic_matches_by_fixture_match_id,
         message: {"ApiKey" => api_key,
-                    "id" => id})
+                    "Id" => fixture_id})
       self.last_call = Time.now         
       return response.hash[:envelope][:body][:get_historic_matches_by_fixture_match_id_response][:get_historic_matches_by_fixture_match_id_result][:xmlsoccer_com][:match]
     end
@@ -116,7 +116,7 @@ class XmlSoccer
     else
       response = client.call(:get_historic_matches_by_id,
         message: {"ApiKey" => api_key,
-                    "id" => id})
+                    "Id" => match_id})
       self.last_call = Time.now        
       return response.hash[:envelope][:body][:get_historic_matches_by_id_response][:get_historic_matches_by_id_result][:xmlsoccer_com][:match]
     end

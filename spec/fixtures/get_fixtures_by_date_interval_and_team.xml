@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Envelope>
+  <Body>
+    <GetFixturesByDateIntervalAndTeamResponse>
+      <GetFixturesByDateIntervalAndTeamResult>
+        <XMLSOCCER.COM>
+          <Match>
+            <Id>324725</Id>
+            <Date>2014-01-04T07:00:00-08:00</Date>
+            <League>Scottish Premier League</League>
+            <Round>21</Round>
+            <HomeTeam>Ross County</HomeTeam>
+            <HomeTeam_Id>360</HomeTeam_Id>
+            <HomeGoals>1</HomeGoals>
+            <AwayTeam>St Johnstone</AwayTeam>
+            <AwayTeam_Id>46</AwayTeam_Id>
+            <AwayGoals>0</AwayGoals>
+            <Time>Finished</Time>
+            <Location>Victoria Park</Location>
+            <HomeTeamYellowCardDetails>89': Scott Boyd;</HomeTeamYellowCardDetails>
+            <AwayTeamYellowCardDetails>61': David Mackay;</AwayTeamYellowCardDetails>
+            <HomeTeamRedCardDetails />
+            <AwayTeamRedCardDetails />
+          </Match>    
+        </XMLSOCCER.COM>
+      </GetFixturesByDateIntervalAndTeamResult>
+    </GetFixturesByDateIntervalAndTeamResponse>
+  </Body>
+</Envelope>          

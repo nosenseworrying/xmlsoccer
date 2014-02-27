@@ -44,6 +44,12 @@ XmlSoccer API GetAllLeagues
 
 As time permits I will add extensive Ruby specific documentation to the Wiki for this repo.
 
+The following methods are currently implemented:
+xml_soccer method | xmlsoccer.com API call
+--- | ---
+`leagues` | GetAllLeagues
+`teams` | 
+
 ## Contributing
 
 1. Fork it ( https://github.com/nosenseworrying/xmlsoccer/fork )

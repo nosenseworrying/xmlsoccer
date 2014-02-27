@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Envelope>
+  <Body>
+    <GetHistoricMatchesByIdResponse>
+      <GetHistoricMatchesByIdResult>
+        <XMLSOCCER.COM>
+          <Match>
+            <Id>65805</Id>
+            <FixtureMatch_Id>324725</FixtureMatch_Id>
+            <Date>2014-01-04T07:00:00-08:00</Date>
+            <Round>21</Round>
+            <Spectators>3212</Spectators>
+            <League>Scottish Premier League</League>
+            <HomeTeam>Ross County</HomeTeam>
+            <HomeTeam_Id>360</HomeTeam_Id>
+            <HomeCorners>5</HomeCorners>
+            <HomeGoals>1</HomeGoals>
+            <HalfTimeHomeGoals>0</HalfTimeHomeGoals>
+            <HomeShots>10</HomeShots>
+            <HomeShotsOnTarget>2</HomeShotsOnTarget>
+            <HomeFouls>13</HomeFouls>
+            <HomeGoalDetails>88': Graham Carey;</HomeGoalDetails>
+            <HomeLineupGoalkeeper> Michael Fraser</HomeLineupGoalkeeper>
+            <HomeLineupDefense> Scott Boyd; Brian McLean; Ben Gordon; Evangelos Ikonomou;</HomeLineupDefense>
+            <HomeLineupMidfield> Stuart Kettlewell; Alex Cooper; Richard Brittain; Graham Carey;</HomeLineupMidfield>
+            <HomeLineupForward> Jordan Slew; Gary Glen;</HomeLineupForward>
+            <HomeYellowCards>1</HomeYellowCards>
+            <HomeRedCards>0</HomeRedCards>
+            <HomeTeamFormation>4-4-2</HomeTeamFormation>
+            <AwayTeam>St Johnstone</AwayTeam>
+            <AwayTeam_Id>46</AwayTeam_Id>
+            <AwayCorners>0</AwayCorners>
+            <AwayGoals>0</AwayGoals>
+            <HalfTimeAwayGoals>0</HalfTimeAwayGoals>
+            <AwayShots>9</AwayShots>
+            <AwayShotsOnTarget>3</AwayShotsOnTarget>
+            <AwayFouls>14</AwayFouls>
+            <AwayGoalDetails />
+            <AwayLineupGoalkeeper> Alan Mannus</AwayLineupGoalkeeper>
+            <AwayLineupDefense> Frazer Wright; Steven Anderson; Thomas Scobbie; David Mackay;</AwayLineupDefense>
+            <AwayLineupMidfield> David Wotherspoon; Murray Davidson; Chris Millar; Gary McDonald;</AwayLineupMidfield>
+            <AwayLineupForward> Nigel Hasselbaink; Steve May;</AwayLineupForward>
+            <AwayYellowCards>1</AwayYellowCards>
+            <AwayRedCards>0</AwayRedCards>
+            <AwayTeamFormation>4-4-2</AwayTeamFormation>
+            <HomeTeamYellowCardDetails>89': Scott Boyd;</HomeTeamYellowCardDetails>
+            <AwayTeamYellowCardDetails>61': David Mackay;</AwayTeamYellowCardDetails>
+            <HomeTeamRedCardDetails />
+            <AwayTeamRedCardDetails />
+            <HomeSubDetails>84': in Michael Tidser;84': out Jordan Slew;66': out Gary Glen;66': in Melvin de Leeuw;</HomeSubDetails>
+            <AwaySubDetails>90': in Rory Fallon;90': in Lee Croft;90': out Chris Millar;90': out David Wotherspoon;69': out Nigel Hasselbaink;69': in Michael O'Halloran;</AwaySubDetails>
+          </Match>  
+        </XMLSOCCER.COM>
+      </GetHistoricMatchesByIdResult>
+    </GetHistoricMatchesByIdResponse>
+  </Body>
+</Envelope>  
