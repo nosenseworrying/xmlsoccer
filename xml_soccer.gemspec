@@ -23,5 +23,5 @@ Gem::Specification.new do |gem|
   gem.test_files    = gem.files.grep(%r{^(test|spec|features)/})
   gem.name          = "xml_soccer"
   gem.require_paths = ["lib"]
-  gem.version       = "0.0.1.pre1"
+  gem.version       = "0.0.1.pre2"
 end
