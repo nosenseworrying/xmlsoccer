@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Envelope>
+  <Body>
+    <GetEarliestMatchDatePerLeagueResponse>
+      <GetEarliestMatchDatePerLeagueResult>
+        <XMLSOCCER.COM>
+          <LeagueInformation>
+            <Date>2000-07-28T15:00:00-07:00</Date>
+          </LeagueInformation>
+          <AccountInformation>Data requested at 02-03-2013 21:02:09 from XX.XX.XX.XX, Username: Espectro. Your current supscription runs out on XX-XX-XXXX 11:01:25.</AccountInformation>
+        </XMLSOCCER.COM>
+      </GetEarliestMatchDatePerLeagueResult>
+    </GetEarliestMatchDatePerLeagueResponse>
+  </Body>
+</Envelope>

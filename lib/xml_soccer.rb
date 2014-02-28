@@ -1,5 +1,6 @@
 #require "xml_soccer/version"
 require 'savon'
+#require 'vine'
 require 'active_support/time'
 
 class XmlSoccer
@@ -109,6 +110,13 @@ class XmlSoccer
               key: :match)
   end
 
+  def earliest_match_date_by_league(league: nil)
+    call_api(method: "get_earliest_match_date_per_league", 
+              message: {"ApiKey" => api_key,
+                        "league" => league},
+              key: :league_information)
+  end
+
   private
   def call_api(method: nil, message: nil, key: nil)
     response = client.call(method.to_sym, message: message)
@@ -120,5 +128,16 @@ class XmlSoccer
       puts hash_response
     end
   end
+
+  # def call_api_nested(method: nil, message: nil, nested_keys: "", key: nil)
+  #   response = client.call(method.to_sym, message: message)
+  #   hash_response = response.body["#{method}_response".to_sym]["#{method}_result".to_sym][:xmlsoccer_com]
+
+  #   if hash_response.is_a?(Hash) && hash_response.access(nested_keys).has_key?(key)
+  #     hash_response.access(nested_keys)[key].is_a?(Array) ? hash_response.access(nested_keys)[key] : [hash_response.access(nested_keys)[key]]
+  #   else
+  #     puts hash_response
+  #   end
+  # end  
 
 end

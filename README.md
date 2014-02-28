@@ -71,7 +71,9 @@ xml_soccer method | xmlsoccer.com API call
 `historic_matches_by_league_and_season(league: 'league', season: 'season')` | GetHistoricMatchesByLeagueAndSeason
 `historic_matches_by_team_and_date(team: 'team', start_date: Date, end_date: Date)` | GetHistoricMatchesByTeamAndDateInterval
 `historic_matches_by_teams_and_date(team_1: 'team_1', team_2: 'team_2', start_date: Date, end_date: Date)` | GetHistoricMatchesByTeamsAndDateInterval
-
+<!---
+`earliest_match_date_by_league(league: 'league')` | GetEarliestMatchDatePerLeague
+--->
 
 ## Contributing
 

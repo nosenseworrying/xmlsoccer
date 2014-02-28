@@ -141,4 +141,7 @@ module HashedResponses
                                               home_sub_details: "84': in Michael Tidser;84': out Jordan Slew;66': out Gary Glen;66': in Melvin de Leeuw;",
                                               away_sub_details: "90': in Rory Fallon;90': in Lee Croft;90': out Chris Millar;90': out David Wotherspoon;69': out Nigel Hasselbaink;69': in Michael O'Halloran;" }                                                 
 
+
+  GetEarliestMatchDatePerLeague = { date: DateTime.parse("2000-07-28T15:00:00-07:00") }                                           
+
 end

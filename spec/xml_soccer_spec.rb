@@ -269,6 +269,24 @@ describe XmlSoccer do
       expect(@array).to include(HashedResponses::GetHistoricMatchesByTeamsAndDateInterval)
     end
   end
+
+  describe '#earliest_match_date_by_league' do
+    before do
+      message = {"ApiKey" => "testkey", "league" => "Scottish Premier League" }
+      fixture = File.read("spec/fixtures/get_earliest_match_date_per_league.xml")
+      response = {code: 200, headers: {}, body: fixture}
+      savon.expects(:get_earliest_match_date_per_league).with(message: message).returns(response)
+      @array = @client.earliest_match_date_by_league(league: "Scottish Premier League")
+    end
+
+    it 'returns an array' do
+      expect(@array).to be_an_instance_of(Array)
+    end    
+    
+    it 'returns expected match' do
+      expect(@array).to include(HashedResponses::GetEarliestMatchDatePerLeague)
+    end
+  end    
     
 end
 
