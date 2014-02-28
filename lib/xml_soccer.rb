@@ -7,11 +7,9 @@ class XmlSoccer
   FULL = "Full"
   DEMO_URL = "http://www.xmlsoccer.com/FootballDataDemo.asmx?WSDL"
   FULL_URL = "http://www.xmlsoccer.com/FootballData.asmx?WSDL"
-  WAIT = 'Wait 5 minutes between calls'  
 
   private
   attr_reader :api_key, :client
-  attr_accessor :last_api_calls
 
   public
   def initialize(options={})
@@ -23,156 +21,103 @@ class XmlSoccer
     end
 
     @client = Savon.client(wsdl: base_url)
-    self.last_api_calls = Hash.new(1.day.ago)
   end
 
   def leagues
-    if last_api_calls[:get_all_leagues] > 60.minutes.ago
-        puts "API LIMIT: You can call :get_all_leagues again at #{last_api_calls[:get_all_leagues] + 60.minutes}"
-    else
-      response = client.call(:get_all_leagues, message:{"ApiKey" => api_key})
-      last_api_calls[:get_all_leagues] = Time.now
-      response.hash[:envelope][:body][:get_all_leagues_response][:get_all_leagues_result][:xmlsoccer_com][:league]
-    end      
+    call_api(method: "get_all_leagues", message: {"ApiKey" => api_key}, key: :league)
   end
 
   def teams
-    if last_api_calls[:get_all_teams] > 60.minutes.ago
-      puts "API LIMIT: You can call :get_all_teams again at #{last_api_calls[:get_all_teams] + 60.minutes}"
-    else
-      response = client.call(:get_all_teams, message:{"ApiKey" => api_key})
-      last_api_calls[:get_all_teams] = Time.now
-      response.hash[:envelope][:body][:get_all_teams_response][:get_all_teams_result][:xmlsoccer_com][:team]
-    end
+    call_api(method: "get_all_teams", message: {"ApiKey" => api_key}, key: :team)
   end
 
   def teams_in_league_by_season(league: nil, season: nil)
-    if last_api_calls[:get_all_teams_by_league_and_season] > 60.minutes.ago
-      puts "API LIMIT: You can call :get_all_teams_by_league_and_season at #{last_api_calls[:get_all_teams_by_league_and_season] + 60.minutes}"
-    else      
-      response = client.call(:get_all_teams_by_league_and_season, message: {"ApiKey" => api_key, "league" => league, "seasonDateString" => season})
-      last_api_calls[:get_all_teams_by_league_and_season] = Time.now
-      response.hash[:envelope][:body][:get_all_teams_by_league_and_season_response][:get_all_teams_by_league_and_season_result][:xmlsoccer_com][:team]
-    end
+    call_api(method: "get_all_teams_by_league_and_season", 
+              message: {"ApiKey" => api_key, "league" => league, "seasonDateString" => season},
+              key: :team)
   end 
 
   def fixtures_by_date(start_date: nil, end_date: nil)
-    if last_api_calls[:get_fixtures_by_date_interval] > 5.minutes.ago
-      puts "API LIMIT: You can call :get_fixtures_by_date_interval at #{last_api_calls[:get_fixtures_by_date_interval] + 5.minutes}"
-    else
-      response = client.call(:get_fixtures_by_date_interval,
-        message: {"ApiKey" => api_key,
-                    "startDateString" => start_date.strftime("%Y-%m-%d"),
-                    "endDateString" => end_date.strftime("%Y-%m-%d")})
-      last_api_calls[:get_fixtures_by_date_interval] = Time.now
-      response.hash[:envelope][:body][:get_fixtures_by_date_interval_response][:get_fixtures_by_date_interval_result][:xmlsoccer_com][:match]
-    end
+    call_api(method: "get_fixtures_by_date_interval", 
+              message: {"ApiKey" => api_key,
+                        "startDateString" => start_date.strftime("%Y-%m-%d"),
+                        "endDateString" => end_date.strftime("%Y-%m-%d")},
+              key: :match)
   end
 
   def fixtures_by_date_and_league(league: nil, start_date: nil, end_date: nil)
-    if last_api_calls[:get_fixtures_by_date_interval_and_league] > 5.minutes.ago
-      puts "API LIMIT: You can call :get_fixtures_by_date_interval_and_league at #{last_api_calls[:get_fixtures_by_date_interval_and_league] + 5.minutes}"
-    else
-      response = client.call(:get_fixtures_by_date_interval_and_league,
-        message: {"ApiKey" => api_key,
-                    "league" => league,
-                    "startDateString" => start_date.strftime("%Y-%m-%d"),
-                    "endDateString" => end_date.strftime("%Y-%m-%d")})
-      last_api_calls[:get_fixtures_by_date_interval_and_league] = Time.now
-      response.hash[:envelope][:body][:get_fixtures_by_date_interval_and_league_response][:get_fixtures_by_date_interval_and_league_result][:xmlsoccer_com][:match]
-    end
+    call_api(method: "get_fixtures_by_date_interval_and_league", 
+              message: {"ApiKey" => api_key,
+                        "league" => league,
+                        "startDateString" => start_date.strftime("%Y-%m-%d"),
+                        "endDateString" => end_date.strftime("%Y-%m-%d")},
+              key: :match)   
   end
 
   def fixtures_by_date_and_team(team: nil, start_date: nil, end_date: nil)
-    if last_api_calls[:get_fixtures_by_date_interval_and_team] > 5.minutes.ago
-      puts "API LIMIT: You can call :get_fixtures_by_date_interval_and_team at #{last_api_calls[:get_fixtures_by_date_interval_and_team] + 5.minutes}"
-    else
-      response = client.call(:get_fixtures_by_date_interval_and_team,
-        message: {"ApiKey" => api_key,
-                    "teamId" => team,
-                    "startDateString" => start_date.strftime("%Y-%m-%d"),
-                    "endDateString" => end_date.strftime("%Y-%m-%d")})
-      last_api_calls[:get_fixtures_by_date_interval_and_team] = Time.now
-      response.hash[:envelope][:body][:get_fixtures_by_date_interval_and_team_response][:get_fixtures_by_date_interval_and_team_result][:xmlsoccer_com][:match]
-    end
+    call_api(method: "get_fixtures_by_date_interval_and_team", 
+              message: {"ApiKey" => api_key,
+                        "teamId" => team,
+                        "startDateString" => start_date.strftime("%Y-%m-%d"),
+                        "endDateString" => end_date.strftime("%Y-%m-%d")},
+              key: :match)
   end  
 
   def historic_match_by_fixture(fixture_id: nil)
-    if last_api_calls[:get_historic_matches_by_fixture_match_id] > 5.minutes.ago
-      puts "API LIMIT: You can call :get_historic_matches_by_fixture_match_id at #{last_api_calls[:get_historic_matches_by_fixture_match_id] + 5.minutes}"
-    else
-      response = client.call(:get_historic_matches_by_fixture_match_id,
-        message: {"ApiKey" => api_key,
-                    "Id" => fixture_id})
-      last_api_calls[:get_historic_matches_by_fixture_match_id] = Time.now         
-      response.hash[:envelope][:body][:get_historic_matches_by_fixture_match_id_response][:get_historic_matches_by_fixture_match_id_result][:xmlsoccer_com][:match]
-    end
+    call_api(method: "get_historic_matches_by_fixture_match_id", 
+              message: {"ApiKey" => api_key, "Id" => fixture_id},
+              key: :match)
   end
 
   def historic_match(match_id: nil)
-    if last_api_calls[:get_historic_matches_by_id] > 5.minutes.ago
-      puts "API LIMIT: You can call :get_historic_matches_by_id at #{last_api_calls[:get_historic_matches_by_id] + 5.minutes}"
-    else
-      response = client.call(:get_historic_matches_by_id,
-        message: {"ApiKey" => api_key,
-                    "Id" => match_id})
-      last_api_calls[:get_historic_matches_by_id] = Time.now        
-      response.hash[:envelope][:body][:get_historic_matches_by_id_response][:get_historic_matches_by_id_result][:xmlsoccer_com][:match]
-    end
+    call_api(method: "get_historic_matches_by_id", 
+              message: {"ApiKey" => api_key, "Id" => match_id},
+              key: :match)
   end
 
   def historic_matches_by_league_and_date(league: nil, start_date: nil, end_date: nil)
-    if last_api_calls[:get_historic_matches_by_league_and_date_interval] > 5.minutes.ago
-      puts "API LIMIT: You can call :get_historic_matches_by_league_and_date_interval at #{last_api_calls[:get_historic_matches_by_league_and_date_interval] + 5.minutes}"
-    else
-      response = client.call(:get_historic_matches_by_league_and_date_interval,
-        message: {"ApiKey" => api_key,
-                    "league" => league, 
-                    "startDateString" => start_date.strftime("%Y-%m-%d"),
-                    "endDateString" => end_date.strftime("%Y-%m-%d")})      
-      last_api_calls[:get_historic_matches_by_league_and_date_interval] = Time.now
-      response.hash[:envelope][:body][:get_historic_matches_by_league_and_date_interval_response][:get_historic_matches_by_league_and_date_interval_result][:xmlsoccer_com][:match]
-    end
+    call_api(method: "get_historic_matches_by_league_and_date_interval", 
+              message: {"ApiKey" => api_key,
+                        "league" => league, 
+                        "startDateString" => start_date.strftime("%Y-%m-%d"),
+                        "endDateString" => end_date.strftime("%Y-%m-%d")},
+              key: :match)
   end  
 
   def historic_matches_by_league_and_season(league: nil, season: nil)
-    if last_api_calls[:get_historic_matches_by_league_and_season] > 60.minutes.ago
-      puts "API LIMIT: You can call :get_historic_matches_by_league_and_season at #{last_api_calls[:get_historic_matches_by_league_and_season] + 60.minutes}"
-    else
-      response = client.call(:get_historic_matches_by_league_and_season,
-        message: {"ApiKey" => api_key,
-                    "league" => league, "seasonDateString" => season})
-      last_api_calls[:get_historic_matches_by_league_and_season] = Time.now          
-      response.hash[:envelope][:body][:get_historic_matches_by_league_and_season_response][:get_historic_matches_by_league_and_season_result][:xmlsoccer_com][:match]
-    end
+    call_api(method: "get_historic_matches_by_league_and_season", 
+              message: {"ApiKey" => api_key, "league" => league, "seasonDateString" => season},
+              key: :match)    
   end  
 
   def historic_matches_by_team_and_date(team: nil, start_date: nil, end_date: nil)
-    if last_api_calls[:get_historic_matches_by_team_and_date_interval] > 5.minutes.ago
-      puts "API LIMIT: You can call :get_historic_matches_by_team_and_date_interval at #{last_api_calls[:get_historic_matches_by_team_and_date_interval] + 5.minutes}"
-    else
-      response = client.call(:get_historic_matches_by_team_and_date_interval,
-        message: {"ApiKey" => api_key,
-                    "teamId" => team,
-                    "startDateString" => start_date.strftime("%Y-%m-%d"),
-                    "endDateString" => end_date.strftime("%Y-%m-%d")})
-      last_api_calls[:get_historic_matches_by_team_and_date_interval] = Time.now              
-      response.hash[:envelope][:body][:get_historic_matches_by_team_and_date_interval_response][:get_historic_matches_by_team_and_date_interval_result][:xmlsoccer_com][:match]
-    end
+    call_api(method: "get_historic_matches_by_team_and_date_interval", 
+              message: {"ApiKey" => api_key,
+                        "teamId" => team,
+                        "startDateString" => start_date.strftime("%Y-%m-%d"),
+                        "endDateString" => end_date.strftime("%Y-%m-%d")},
+              key: :match)
   end  
 
   def historic_matches_by_teams_and_date(team_1: nil, team_2: nil, start_date: nil, end_date: nil)
-    if last_api_calls[:get_historic_matches_by_teams_and_date_interval] > 5.minutes.ago
-      puts "API LIMIT: You can call :get_historic_matches_by_teams_and_date_interval at #{last_api_calls[:get_historic_matches_by_teams_and_date_interval] + 5.minutes}"
+    call_api(method: "get_historic_matches_by_teams_and_date_interval", 
+              message: {"ApiKey" => api_key,
+                        "team1Id" => team_1,
+                        "team2Id" => team_2,
+                        "startDateString" => start_date.strftime("%Y-%m-%d"),
+                        "endDateString" => end_date.strftime("%Y-%m-%d")},
+              key: :match)
+  end
+
+  private
+  def call_api(method: nil, message: nil, key: nil)
+    response = client.call(method.to_sym, message: message)
+    hash_response = response.body["#{method}_response".to_sym]["#{method}_result".to_sym][:xmlsoccer_com]
+
+    if hash_response.is_a?(Hash) && hash_response.has_key?(key)
+      hash_response[key].is_a?(Array) ? hash_response[key] : [hash_response[key]]
     else
-      response = client.call(:get_historic_matches_by_teams_and_date_interval,
-        message: {"ApiKey" => api_key,
-                    "team1Id" => team_1,
-                    "team2Id" => team_2,
-                    "startDateString" => start_date.strftime("%Y-%m-%d"),
-                    "endDateString" => end_date.strftime("%Y-%m-%d")})
-      last_api_calls[:get_historic_matches_by_teams_and_date_interval] = Time.now     
-      response.hash[:envelope][:body][:get_historic_matches_by_teams_and_date_interval_response][:get_historic_matches_by_teams_and_date_interval_result][:xmlsoccer_com][:match]
+      puts hash_response
     end
   end
 

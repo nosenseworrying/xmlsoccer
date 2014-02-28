@@ -13,7 +13,7 @@ This gem requires Ruby 2.0 or greater, due to the use of keyword arguments in me
 
 Add this line to your application's Gemfile:
 
-    gem "xml_soccer", "~> 0.0.1.pre1"
+    gem "xml_soccer"
 
 And then execute:
 
@@ -31,8 +31,8 @@ I would recommend everyone interested in using this gem to first read the docume
 
 Additionally, the author of the xmlsoccer.com API has put a rate limit on all requests: http://xmlsoccer.wikia.com/wiki/Time_interval_limits
 
-This gem checks when the last request was made, and currently requires you to wait between calls.  I will be making a more robust request
-time check that will be more in line with the xmlsoccer.com limitations.
+Methods will return an Array of the results (as Hashes) from the API call.  If an error occurs, methods will return nil, and print the
+response from the API call to the console.
 
 You must have an xmlsoccer.com API Key and know which API type to use.  Currently there are two types: XmlSoccer::DEMO and XmlSoccer::FULL.
 Demo is the default if you do not explicitly provide a type.
@@ -41,13 +41,19 @@ Example Usage:
 
 xmlsoccer.com API GetAllLeagues
 
-	xmlsoccer = XmlSoccer.new(api_key: 'Api_key', api_type:'Api_Type')
+```
+xmlsoccer = XmlSoccer.new(api_key: 'Api_key', api_type:'Api_Type')
 
-	leagues = xmlsoccer.leagues
+leagues = xmlsoccer.leagues
 
-	leagues.each do |league|
-		puts league[:name]
-	end
+if leagues
+  leagues.each do |league|
+    puts league[:name]
+  end
+else
+  puts "An Error Occured!"
+end
+```
 
 The following methods are currently implemented:
 
