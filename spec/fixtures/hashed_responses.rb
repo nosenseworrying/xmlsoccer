@@ -202,4 +202,6 @@ GetTopScorersByLeagueAndSeason = { rank: "1", name: "Kris Commons", team_name: "
 GetOddsByFixtureMatchId = { id: "139429", fixture_match_id: "324725", date_create: DateTime.parse("2013-12-30T02:56:32.487-08:00"),
                             bwin_home: "2.85", bwin_url: "https://www.bwin.com/", bwin_away: "2.30", bwin_draw: "3.20" }
 
+CheckApiKey = { string: {string: "Hello  , you have access to free leagues (demo-user)." } }                           
+
 end

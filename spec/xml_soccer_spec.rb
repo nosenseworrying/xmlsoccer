@@ -423,7 +423,27 @@ describe XmlSoccer do
       expect(@array).to include(HashedResponses::GetOddsByFixtureMatchId)
     end
     
+  end  
+
+  describe '#check_api_key' do
+    before do
+      message = {"ApiKey" => "testkey"}
+      fixture = File.read("spec/fixtures/check_api_key.xml")                                  
+      response = {code: 200, headers: {}, body: fixture}
+      savon.expects(:check_api_key).with(message: message).returns(response)
+      @array = @client.check_api_key
+    end
+    
+    it 'returns an array' do
+      expect(@array).to be_an_instance_of(Array)
+    end
+    
+    it 'returns expected message' do
+      expect(@array).to include(HashedResponses::CheckApiKey)
+    end
+    
   end         
+
 
 end
 
