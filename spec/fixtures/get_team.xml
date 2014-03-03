@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Envelope>
+  <Body>
+    <GetTeamResponse>
+      <GetTeamResult>
+        <XMLSOCCER.COM>
+          <Team>
+            <Id>46</Id>
+            <Name>St Johnstone</Name>
+            <Stadium>McDiarmid Park</Stadium>
+            <Website>http://www.perthstjohnstonefc.co.uk</Website>
+            <WikiPageUrl>http://en.wikipedia.org/wiki/St._Johnstone_F.C.</WikiPageUrl>
+            <Country>Scotland</Country>
+          </Team>
+        </XMLSOCCER.COM>
+      </GetTeamResult>
+    </GetTeamResponse>
+  </Body>
+</Envelope>

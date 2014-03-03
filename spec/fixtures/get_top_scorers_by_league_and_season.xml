@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Envelope>
+  <Body>
+    <GetTopScorersByLeagueAndSeasonResponse>
+      <GetTopScorersByLeagueAndSeasonResult>
+        <XMLSOCCER.COM>
+          <Topscorer>
+            <Rank>1</Rank>
+            <Name>Kris Commons</Name>
+            <TeamName>Celtic</TeamName>
+            <Team_Id>54</Team_Id>
+            <Nationality>Scotland</Nationality>
+            <Goals>18</Goals>
+            <FirstScorer>10</FirstScorer>
+            <Penalties>4</Penalties>
+            <MissedPenalties>0</MissedPenalties>
+          </Topscorer>
+          <Topscorer>
+            <Rank>2</Rank>
+            <Name>Kris Boyd</Name>
+            <TeamName>Kilmarnock</TeamName>
+            <Team_Id>52</Team_Id>
+            <Nationality>Scotland</Nationality>
+            <Goals>16</Goals>
+            <FirstScorer>4</FirstScorer>
+            <Penalties>0</Penalties>
+            <MissedPenalties>0</MissedPenalties>
+          </Topscorer>        
+        </XMLSOCCER.COM>
+      </GetTopScorersByLeagueAndSeasonResult>
+    </GetTopScorersByLeagueAndSeasonResponse>
+  </Body>
+</Envelope>           

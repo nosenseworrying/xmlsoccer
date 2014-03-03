@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Envelope>
+  <Body>
+    <GetLiveScoreResponse>
+      <GetLiveScoreResult>
+        <XMLSOCCER.COM>
+          <Match>
+              <Id>285385</Id>
+              <Date>2013-03-30T13:45:00+01:00</Date>
+              <League>English Premier League</League>
+              <Round>31</Round>
+              <Spectators>43747</Spectators>
+              <Hometeam>Sunderland</Hometeam>
+              <HomeTeam_Id>7</HomeTeam_Id>
+              <Awayteam>Man United</Awayteam>
+              <AwayTeam_Id>17</AwayTeam_Id>
+              <Time>Finished</Time>
+              <HomeGoals>0</HomeGoals>
+              <AwayGoals>1</AwayGoals>
+              <HomeGoalDetails/>
+              <AwayGoalDetails>27':Own  Titus Bramble;</AwayGoalDetails>
+              <HomeLineupGoalkeeper> Simon Mignolet</HomeLineupGoalkeeper>
+              <AwayLineupGoalkeeper> David De Gea</AwayLineupGoalkeeper>
+              <HomeLineupDefense> Danny Rose; Phillip Bardsley; John O´Shea; Titus Bramble;</HomeLineupDefense>
+              <AwayLineupDefense> Alexander Büttner; Rafael da Silva; Chris Smalling; Nemanja Vidic;</AwayLineupDefense>
+              <HomeLineupMidfield> Adam Johnson; Alfred N´Diaye; Craig Gardner; James McClean; Stephane Sessegnon;</HomeLineupMidfield>
+              <AwayLineupMidfield> Shinji Kagawa; Ashley Young; Anderson; Michael Carrick; Luis Antonio Valencia;</AwayLineupMidfield>
+              <HomeLineupForward> Daniel Graham;</HomeLineupForward>
+              <AwayLineupForward> Robin van Persie;</AwayLineupForward>
+              <HomeSubDetails>85': in Jack Colback;85': out Danny Rose;79': out Phillip Bardsley;79': in Sebastian Larsson;76': in Connor Wickham;76': out Adam Johnson;</HomeSubDetails>
+              <AwaySubDetails>84': out Anderson;84': in Tom Cleverley;79': in Danny Welbeck;79': out Shinji Kagawa;32': in Jonny Evans;32': out Rafael da Silva;</AwaySubDetails>
+              <HomeTeamFormation>4-4-1-1</HomeTeamFormation>
+              <AwayTeamFormation>4-2-3-1</AwayTeamFormation>
+              <Location>Stadium of Light</Location>
+              <Stadium>Stadium of Light</Stadium>
+              <HomeTeamYellowCardDetails>76': Phillip Bardsley;50': John O´Shea;26': Alfred N´Diaye;</HomeTeamYellowCardDetails>
+              <AwayTeamYellowCardDetails>58': Robin van Persie;</AwayTeamYellowCardDetails>
+              <HomeTeamRedCardDetails/>
+              <AwayTeamRedCardDetails/>
+          </Match>
+          <Match>
+              <Id>286362</Id>
+              <Date>2013-03-30T15:00:00+01:00</Date>
+              <League>Serie A</League>
+              <Round>30</Round>
+              <Spectators>30953</Spectators>
+              <Hometeam>Lazio</Hometeam>
+              <HomeTeam_Id>76</HomeTeam_Id>
+              <Awayteam>Catania</Awayteam>
+              <AwayTeam_Id>79</AwayTeam_Id>
+              <Time>54'</Time>
+              <HomeGoals>0</HomeGoals>
+              <AwayGoals>1</AwayGoals>
+              <HomeGoalDetails/>
+              <AwayGoalDetails>50': Mariano Julio Izco;</AwayGoalDetails>
+              <HomeLineupGoalkeeper> Federico Marchetti</HomeLineupGoalkeeper>
+              <AwayLineupGoalkeeper> Mariano Andujar</AwayLineupGoalkeeper>
+              <HomeLineupDefense> Alvaro Gonzalez; Stefan Daniel Radu; Giuseppe Biava; Lorik Cana;</HomeLineupDefense>
+              <AwayLineupDefense> Nicola Legrottaglie; Pablo Sebastian Alvarez; Giovanni Marchese; Giuseppe Bellusci;</AwayLineupDefense>
+              <HomeLineupMidfield> Christian Daniel Ledesma; Senad Lulic; Anderson Hernanes; Ogenyi Onazi; Antonio Candreva;</HomeLineupMidfield>
+              <AwayLineupMidfield> Marco Biagianti; Francesco Lodi; Mariano Julio Izco;</AwayLineupMidfield>
+              <HomeLineupForward> Louis Saha;</HomeLineupForward>
+              <AwayLineupForward> Alejandro Daro Gomez; Gonzalo Bergessio; Pablo Barrientos;</AwayLineupForward>
+              <HomeSubDetails/>
+              <AwaySubDetails/>
+              <HomeTeamFormation>4-1-4-1</HomeTeamFormation>
+              <AwayTeamFormation>4-3-3</AwayTeamFormation>
+              <Location>Stadio Olimpico</Location>
+              <Stadium>Stadio Olimpico</Stadium>
+              <HomeTeamYellowCardDetails/>
+              <AwayTeamYellowCardDetails>17': Giovanni Marchese;</AwayTeamYellowCardDetails>
+              <HomeTeamRedCardDetails/>
+              <AwayTeamRedCardDetails/>
+          </Match>
+        </XMLSOCCER.COM>
+      </GetLiveScoreResult>
+    </GetLiveScoreResponse>
+  </Body>
+</Envelope>           

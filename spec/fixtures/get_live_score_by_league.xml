@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Envelope>
+  <Body>
+    <GetLiveScoreByLeagueResponse>
+      <GetLiveScoreByLeagueResult>
+        <XMLSOCCER.COM>
+          <Match>
+              <Id>286362</Id>
+              <Date>2013-03-30T15:00:00+01:00</Date>
+              <League>Serie A</League>
+              <Round>30</Round>
+              <Spectators>30953</Spectators>
+              <Hometeam>Lazio</Hometeam>
+              <HomeTeam_Id>76</HomeTeam_Id>
+              <Awayteam>Catania</Awayteam>
+              <AwayTeam_Id>79</AwayTeam_Id>
+              <Time>54'</Time>
+              <HomeGoals>0</HomeGoals>
+              <AwayGoals>1</AwayGoals>
+              <HomeGoalDetails/>
+              <AwayGoalDetails>50': Mariano Julio Izco;</AwayGoalDetails>
+              <HomeLineupGoalkeeper> Federico Marchetti</HomeLineupGoalkeeper>
+              <AwayLineupGoalkeeper> Mariano Andujar</AwayLineupGoalkeeper>
+              <HomeLineupDefense> Alvaro Gonzalez; Stefan Daniel Radu; Giuseppe Biava; Lorik Cana;</HomeLineupDefense>
+              <AwayLineupDefense> Nicola Legrottaglie; Pablo Sebastian Alvarez; Giovanni Marchese; Giuseppe Bellusci;</AwayLineupDefense>
+              <HomeLineupMidfield> Christian Daniel Ledesma; Senad Lulic; Anderson Hernanes; Ogenyi Onazi; Antonio Candreva;</HomeLineupMidfield>
+              <AwayLineupMidfield> Marco Biagianti; Francesco Lodi; Mariano Julio Izco;</AwayLineupMidfield>
+              <HomeLineupForward> Louis Saha;</HomeLineupForward>
+              <AwayLineupForward> Alejandro Daro Gomez; Gonzalo Bergessio; Pablo Barrientos;</AwayLineupForward>
+              <HomeSubDetails/>
+              <AwaySubDetails/>
+              <HomeTeamFormation>4-1-4-1</HomeTeamFormation>
+              <AwayTeamFormation>4-3-3</AwayTeamFormation>
+              <Location>Stadio Olimpico</Location>
+              <Stadium>Stadio Olimpico</Stadium>
+              <HomeTeamYellowCardDetails/>
+              <AwayTeamYellowCardDetails>17': Giovanni Marchese;</AwayTeamYellowCardDetails>
+              <HomeTeamRedCardDetails/>
+              <AwayTeamRedCardDetails/>
+          </Match>
+        </XMLSOCCER.COM>
+      </GetLiveScoreByLeagueResult>
+    </GetLiveScoreByLeagueResponse>
+  </Body>
+</Envelope>           

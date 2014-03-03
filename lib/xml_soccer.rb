@@ -1,6 +1,5 @@
 #require "xml_soccer/version"
 require 'savon'
-#require 'vine'
 require 'active_support/time'
 
 class XmlSoccer
@@ -38,6 +37,10 @@ class XmlSoccer
               key: :team)
   end 
 
+  def team(team: nil)
+    call_api(method: "get_team", message: {"ApiKey" => api_key, "team" => team}, key: :team)
+  end  
+
   def fixtures_by_date(start_date: nil, end_date: nil)
     call_api(method: "get_fixtures_by_date_interval", 
               message: {"ApiKey" => api_key,
@@ -62,7 +65,13 @@ class XmlSoccer
                         "startDateString" => start_date.strftime("%Y-%m-%d"),
                         "endDateString" => end_date.strftime("%Y-%m-%d")},
               key: :match)
-  end  
+  end
+
+  def fixtures_by_league_and_season(league: nil, season: nil)
+    call_api(method: "get_fixtures_by_league_and_season", 
+              message: {"ApiKey" => api_key, "league" => league, "seasonDateString" => season},
+              key: :match)        
+  end
 
   def historic_match_by_fixture(fixture_id: nil)
     call_api(method: "get_historic_matches_by_fixture_match_id", 
@@ -117,6 +126,37 @@ class XmlSoccer
               key: :league_information)
   end
 
+  def league_standings_by_season(league: nil, season: nil)
+    call_api(method: "get_league_standings_by_season", 
+              message: {"ApiKey" => api_key, "league" => league, "seasonDateString" => season},
+              key: :team_league_standing)       
+  end
+
+  def live_scores
+    call_api(method: "get_live_score", message: {"ApiKey" => api_key}, key: :match)
+  end
+
+  def live_scores_by_league(league: nil)
+    call_api(method: "get_live_score_by_league", message: {"ApiKey" => api_key, "league" => league}, key: :match)
+  end
+
+  def top_scorers_by_league_and_season(league: nil, season: nil)
+    call_api(method: "get_top_scorers_by_league_and_season", 
+              message: {"ApiKey" => api_key, "league" => league, "seasonDateString" => season},
+              key: :topscorer)
+  end
+
+  def odds_by_fixture(fixture_id: nil)
+    call_api(method: "get_odds_by_fixture_match_id", 
+              message: {"ApiKey" => api_key, "fixtureMatch_Id" => fixture_id},
+              key: :odds)
+  end
+
+  def check_api_key
+    response = client.call(:check_api_key, message: {"ApiKey" => api_key})
+    [{ string: response.body[:check_api_key_response][:check_api_key_result] }]
+  end
+
   private
   def call_api(method: nil, message: nil, key: nil)
     response = client.call(method.to_sym, message: message)
@@ -128,16 +168,5 @@ class XmlSoccer
       puts hash_response
     end
   end
-
-  # def call_api_nested(method: nil, message: nil, nested_keys: "", key: nil)
-  #   response = client.call(method.to_sym, message: message)
-  #   hash_response = response.body["#{method}_response".to_sym]["#{method}_result".to_sym][:xmlsoccer_com]
-
-  #   if hash_response.is_a?(Hash) && hash_response.access(nested_keys).has_key?(key)
-  #     hash_response.access(nested_keys)[key].is_a?(Array) ? hash_response.access(nested_keys)[key] : [hash_response.access(nested_keys)[key]]
-  #   else
-  #     puts hash_response
-  #   end
-  # end  
 
 end

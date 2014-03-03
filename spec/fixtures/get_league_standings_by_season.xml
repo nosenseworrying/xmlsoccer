@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Envelope>
+  <Body>
+    <GetLeagueStandingsBySeasonResponse>
+      <GetLeagueStandingsBySeasonResult>
+        <XMLSOCCER.COM>
+          <TeamLeagueStanding xmlns="http://xmlsoccer.com/LeagueStanding">
+            <Team>Celtic</Team>
+            <Team_Id>54</Team_Id>
+            <Played>38</Played>
+            <PlayedAtHome>19</PlayedAtHome>
+            <PlayedAway>19</PlayedAway>
+            <Won>24</Won>
+            <Draw>7</Draw>
+            <Lost>7</Lost>
+            <NumberOfShots>839</NumberOfShots>
+            <YellowCards>45</YellowCards>
+            <RedCards>1</RedCards>
+            <Goals_For>92</Goals_For>
+            <Goals_Against>35</Goals_Against>
+            <Goal_Difference>57</Goal_Difference>
+            <Points>79</Points>
+          </TeamLeagueStanding>
+          <TeamLeagueStanding xmlns="http://xmlsoccer.com/LeagueStanding">
+            <Team>Motherwell</Team>
+            <Team_Id>47</Team_Id>
+            <Played>38</Played>
+            <PlayedAtHome>19</PlayedAtHome>
+            <PlayedAway>19</PlayedAway>
+            <Won>18</Won>
+            <Draw>9</Draw>
+            <Lost>11</Lost>
+            <NumberOfShots>608</NumberOfShots>
+            <YellowCards>43</YellowCards>
+            <RedCards>6</RedCards>
+            <Goals_For>67</Goals_For>
+            <Goals_Against>51</Goals_Against>
+            <Goal_Difference>16</Goal_Difference>
+            <Points>63</Points>
+          </TeamLeagueStanding>
+        </XMLSOCCER.COM>
+      </GetLeagueStandingsBySeasonResult>
+    </GetLeagueStandingsBySeasonResponse>
+  </Body>
+</Envelope>            

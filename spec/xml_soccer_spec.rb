@@ -147,6 +147,26 @@ describe XmlSoccer do
       expect(@array).to include(HashedResponses::GetFixturesByDateIntervalAndTeam)
     end
   end
+
+  describe '#fixtures_by_league_and_season' do
+    before do
+      message = {"ApiKey" => "testkey",
+                  "league" => "Scottish Premier League",
+                  "seasonDateString" => "" }
+      fixture = File.read("spec/fixtures/get_fixtures_by_league_and_season.xml")
+      response = {code: 200, headers: {}, body: fixture}
+      savon.expects(:get_fixtures_by_league_and_season).with(message: message).returns(response)
+      @array = @client.fixtures_by_league_and_season(league: "Scottish Premier League", season: "")
+    end
+
+    it 'returns an array' do
+      expect(@array).to be_an_instance_of(Array)
+    end    
+    
+    it 'returns expected match' do
+      expect(@array).to include(HashedResponses::GetFixturesByLeagueAndSeason)
+    end
+  end    
   
   describe '#historic_match_by_fixture' do
     before do
@@ -286,7 +306,124 @@ describe XmlSoccer do
     it 'returns expected match' do
       expect(@array).to include(HashedResponses::GetEarliestMatchDatePerLeague)
     end
-  end    
+  end   
+
+  describe '#league_standings_by_season' do
+    before do
+      message = {"ApiKey" => "testkey",
+                  "league" => "Scottish Premier League",
+                  "seasonDateString" => "1213" }
+      fixture = File.read("spec/fixtures/get_league_standings_by_season.xml")
+      response = {code: 200, headers: {}, body: fixture}
+      savon.expects(:get_league_standings_by_season).with(message: message).returns(response)
+      @array = @client.league_standings_by_season(league: "Scottish Premier League", season: "1213")
+    end
+
+    it 'returns an array' do
+      expect(@array).to be_an_instance_of(Array)
+    end    
     
+    it 'returns expected standing' do
+      expect(@array).to include(HashedResponses::GetLeagueStandingsBySeason)
+    end
+  end     
+    
+  describe '#live_scores' do
+    before do
+        message = {"ApiKey" => "testkey"}
+        fixture = File.read("spec/fixtures/get_live_score.xml")
+
+        response = {code: 200, headers: {}, body: fixture}
+        savon.expects(:get_live_score).with(message: message).returns(response)
+        @array = @client.live_scores
+    end
+    
+    it 'returns an array' do
+     expect(@array).to be_an_instance_of(Array)
+    end
+
+    it 'returns expected score' do
+      expect(@array).to include(HashedResponses::GetLiveScore)
+    end
+  end 
+
+  describe '#live_scores_by_league' do
+    before do
+        message = {"ApiKey" => "testkey", "league" => "Serie A"}
+        fixture = File.read("spec/fixtures/get_live_score_by_league.xml")
+
+        response = {code: 200, headers: {}, body: fixture}
+        savon.expects(:get_live_score_by_league).with(message: message).returns(response)
+        @array = @client.live_scores_by_league(league: "Serie A")
+    end
+    
+    it 'returns an array' do
+     expect(@array).to be_an_instance_of(Array)
+    end
+
+    it 'returns expected score' do
+      expect(@array).to include(HashedResponses::GetLiveScoreByLeague)
+    end
+  end 
+
+  describe '#team' do
+    before do
+        message = {"ApiKey" => "testkey", "team" => "46"}
+        fixture = File.read("spec/fixtures/get_team.xml")
+
+        response = {code: 200, headers: {}, body: fixture}
+        savon.expects(:get_team).with(message: message).returns(response)
+        @array = @client.team(team: "46")
+    end
+    
+    it 'returns an array' do
+     expect(@array).to be_an_instance_of(Array)
+    end
+
+    it 'returns expected team' do
+      expect(@array).to include(HashedResponses::GetTeam)
+    end
+  end     
+
+  describe '#top_scorers_by_league_and_season' do
+    before do
+      message = {"ApiKey" => "testkey",
+                  "league" => "Scottish Premier League", "seasonDateString" => "1314"}
+      fixture = File.read("spec/fixtures/get_top_scorers_by_league_and_season.xml")                                  
+      response = {code: 200, headers: {}, body: fixture}
+      savon.expects(:get_top_scorers_by_league_and_season).with(message: message).returns(response)
+      @array = @client.top_scorers_by_league_and_season(league: "Scottish Premier League", season: "1314")
+    end
+    
+    it 'returns an array' do
+      expect(@array).to be_an_instance_of(Array)
+    end
+    
+    it 'returns expected scorer' do
+      expect(@array).to include(HashedResponses::GetTopScorersByLeagueAndSeason)
+    end
+    
+  end
+
+  describe '#odds_by_fixture' do
+    before do
+      message = {"ApiKey" => "testkey",
+                  "fixtureMatch_Id" => "324725"}
+      fixture = File.read("spec/fixtures/get_odds_by_fixture_match_id.xml")                                  
+      response = {code: 200, headers: {}, body: fixture}
+      savon.expects(:get_odds_by_fixture_match_id).with(message: message).returns(response)
+      @array = @client.odds_by_fixture(fixture_id: "324725")
+    end
+    
+    it 'returns an array' do
+      expect(@array).to be_an_instance_of(Array)
+    end
+    
+    it 'returns expected odds' do
+      expect(@array).to include(HashedResponses::GetOddsByFixtureMatchId)
+    end
+    
+  end         
+
 end
 
