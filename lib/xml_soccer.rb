@@ -24,35 +24,33 @@ class XmlSoccer
   end
 
   def leagues
-    call_api(method: "get_all_leagues", message: {"ApiKey" => api_key}, key: :league)
+    call_api(method: "get_all_leagues", key: :league)
   end
 
   def teams
-    call_api(method: "get_all_teams", message: {"ApiKey" => api_key}, key: :team)
+    call_api(method: "get_all_teams", key: :team)
   end
 
   def teams_in_league_by_season(league: nil, season: nil)
     call_api(method: "get_all_teams_by_league_and_season", 
-              message: {"ApiKey" => api_key, "league" => league, "seasonDateString" => season},
+              message: {"league" => league, "seasonDateString" => season},
               key: :team)
   end 
 
   def team(team: nil)
-    call_api(method: "get_team", message: {"ApiKey" => api_key, "team" => team}, key: :team)
+    call_api(method: "get_team", message: {"team" => team}, key: :team)
   end  
 
   def fixtures_by_date(start_date: nil, end_date: nil)
     call_api(method: "get_fixtures_by_date_interval", 
-              message: {"ApiKey" => api_key,
-                        "startDateString" => start_date.strftime("%Y-%m-%d"),
+              message: {"startDateString" => start_date.strftime("%Y-%m-%d"),
                         "endDateString" => end_date.strftime("%Y-%m-%d")},
               key: :match)
   end
 
   def fixtures_by_date_and_league(league: nil, start_date: nil, end_date: nil)
     call_api(method: "get_fixtures_by_date_interval_and_league", 
-              message: {"ApiKey" => api_key,
-                        "league" => league,
+              message: {"league" => league,
                         "startDateString" => start_date.strftime("%Y-%m-%d"),
                         "endDateString" => end_date.strftime("%Y-%m-%d")},
               key: :match)   
@@ -60,8 +58,7 @@ class XmlSoccer
 
   def fixtures_by_date_and_team(team: nil, start_date: nil, end_date: nil)
     call_api(method: "get_fixtures_by_date_interval_and_team", 
-              message: {"ApiKey" => api_key,
-                        "teamId" => team,
+              message: {"teamId" => team,
                         "startDateString" => start_date.strftime("%Y-%m-%d"),
                         "endDateString" => end_date.strftime("%Y-%m-%d")},
               key: :match)
@@ -69,26 +66,25 @@ class XmlSoccer
 
   def fixtures_by_league_and_season(league: nil, season: nil)
     call_api(method: "get_fixtures_by_league_and_season", 
-              message: {"ApiKey" => api_key, "league" => league, "seasonDateString" => season},
+              message: {"league" => league, "seasonDateString" => season},
               key: :match)        
   end
 
   def historic_match_by_fixture(fixture_id: nil)
     call_api(method: "get_historic_matches_by_fixture_match_id", 
-              message: {"ApiKey" => api_key, "Id" => fixture_id},
+              message: {"Id" => fixture_id},
               key: :match)
   end
 
   def historic_match(match_id: nil)
     call_api(method: "get_historic_matches_by_id", 
-              message: {"ApiKey" => api_key, "Id" => match_id},
+              message: {"Id" => match_id},
               key: :match)
   end
 
   def historic_matches_by_league_and_date(league: nil, start_date: nil, end_date: nil)
     call_api(method: "get_historic_matches_by_league_and_date_interval", 
-              message: {"ApiKey" => api_key,
-                        "league" => league, 
+              message: {"league" => league, 
                         "startDateString" => start_date.strftime("%Y-%m-%d"),
                         "endDateString" => end_date.strftime("%Y-%m-%d")},
               key: :match)
@@ -96,14 +92,13 @@ class XmlSoccer
 
   def historic_matches_by_league_and_season(league: nil, season: nil)
     call_api(method: "get_historic_matches_by_league_and_season", 
-              message: {"ApiKey" => api_key, "league" => league, "seasonDateString" => season},
+              message: {"league" => league, "seasonDateString" => season},
               key: :match)    
   end  
 
   def historic_matches_by_team_and_date(team: nil, start_date: nil, end_date: nil)
     call_api(method: "get_historic_matches_by_team_and_date_interval", 
-              message: {"ApiKey" => api_key,
-                        "teamId" => team,
+              message: {"teamId" => team,
                         "startDateString" => start_date.strftime("%Y-%m-%d"),
                         "endDateString" => end_date.strftime("%Y-%m-%d")},
               key: :match)
@@ -111,8 +106,7 @@ class XmlSoccer
 
   def historic_matches_by_teams_and_date(team_1: nil, team_2: nil, start_date: nil, end_date: nil)
     call_api(method: "get_historic_matches_by_teams_and_date_interval", 
-              message: {"ApiKey" => api_key,
-                        "team1Id" => team_1,
+              message: {"team1Id" => team_1,
                         "team2Id" => team_2,
                         "startDateString" => start_date.strftime("%Y-%m-%d"),
                         "endDateString" => end_date.strftime("%Y-%m-%d")},
@@ -121,34 +115,33 @@ class XmlSoccer
 
   def earliest_match_date_by_league(league: nil)
     call_api(method: "get_earliest_match_date_per_league", 
-              message: {"ApiKey" => api_key,
-                        "league" => league},
+              message: {"league" => league},
               key: :league_information)
   end
 
   def league_standings_by_season(league: nil, season: nil)
     call_api(method: "get_league_standings_by_season", 
-              message: {"ApiKey" => api_key, "league" => league, "seasonDateString" => season},
+              message: {"league" => league, "seasonDateString" => season},
               key: :team_league_standing)       
   end
 
   def live_scores
-    call_api(method: "get_live_score", message: {"ApiKey" => api_key}, key: :match)
+    call_api(method: "get_live_score", key: :match)
   end
 
   def live_scores_by_league(league: nil)
-    call_api(method: "get_live_score_by_league", message: {"ApiKey" => api_key, "league" => league}, key: :match)
+    call_api(method: "get_live_score_by_league", message: {"league" => league}, key: :match)
   end
 
   def top_scorers_by_league_and_season(league: nil, season: nil)
     call_api(method: "get_top_scorers_by_league_and_season", 
-              message: {"ApiKey" => api_key, "league" => league, "seasonDateString" => season},
+              message: {"league" => league, "seasonDateString" => season},
               key: :topscorer)
   end
 
   def odds_by_fixture(fixture_id: nil)
     call_api(method: "get_odds_by_fixture_match_id", 
-              message: {"ApiKey" => api_key, "fixtureMatch_Id" => fixture_id},
+              message: {"fixtureMatch_Id" => fixture_id},
               key: :odds)
   end
 
@@ -158,7 +151,8 @@ class XmlSoccer
   end
 
   private
-  def call_api(method: nil, message: nil, key: nil)
+  def call_api(method: nil, message: {}, key: nil)
+    message["ApiKey"] = api_key
     response = client.call(method.to_sym, message: message)
     hash_response = response.body["#{method}_response".to_sym]["#{method}_result".to_sym][:xmlsoccer_com]
 
