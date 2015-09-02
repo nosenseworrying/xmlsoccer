@@ -62,6 +62,7 @@ xml_soccer method | xmlsoccer.com API call
 `teams_in_league_by_season(league: 'league', season: 'season')` | GetAllTeamsByLeagueAndSeason
 `team(team: 'team')` | GetTeam
 `earliest_match_date_by_league(league: 'league')` | GetEarliestMatchDatePerLeague
+`fixture(fixture_id: 'fixture_id')` | GetFixtureMatchByID
 `fixtures_by_date(start_date: Date, end_date: Date)` | GetFixturesByDateInterval
 `fixtures_by_date_and_league(league: 'league', start_date: Date, end_date: Date)` | GetFixturesByDateIntervalAndLeague
 `fixtures_by_date_and_team(team: 'team', start_date: Date, end_date: Date)` | GetFixturesByDateIntervalAndTeam
@@ -77,6 +78,8 @@ xml_soccer method | xmlsoccer.com API call
 `live_scores_by_league(league: 'league')` | GetLiveScoreByLeague
 `odds_by_fixture(fixture_id: 'league')` | GetOddsByFixtureMatchId
 `top_scorers_by_league_and_season(league: 'league', season: 'season')` | GetTopScorersByLeagueAndSeason
+`players_by_team(team_id: 'team_id')` | GetPlayersByTeam
+`player(player_id: 'player_id')` | GetPlayerById
 
 ## Contributing
 

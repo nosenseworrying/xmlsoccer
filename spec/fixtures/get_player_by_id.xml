@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Envelope>
+  <Body>
+    <GetPlayerByIdResponse>
+      <GetPlayerByIdResult>
+        <XMLSOCCER.COM>
+          <Player>
+            <Id>15435</Id>
+            <Name>Cem Felek </Name>
+            <Nationality>Germany</Nationality>
+            <Position>Midfielder</Position>
+            <Team_Id>45</Team_Id>
+            <PlayerNumber>47</PlayerNumber>
+            <DateOfBirth>1996-05-12T00:00:00+00:00</DateOfBirth>
+            <DateOfSigning>2014-07-01T00:00:00+00:00</DateOfSigning>
+            <Signing>Signed</Signing>
+          </Player>
+        </XMLSOCCER.COM>
+      </GetPlayerByIdResult>   
+    </GetPlayerByIdResponse>
+  </Body>  
+</Envelope>

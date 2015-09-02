@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Envelope>
+  <Body>
+    <GetPlayersByTeamResponse>
+      <GetPlayersByTeamResult>
+        <XMLSOCCER.COM>
+          <Player>
+            <Id>2523</Id>
+            <Name>David Goodwillie </Name>
+            <Height>1.7</Height>
+            <Weight>70.29</Weight>
+            <Nationality>Scotland</Nationality>
+            <Position>Forward</Position>
+            <Team_Id>45</Team_Id>
+            <PlayerNumber>17</PlayerNumber>
+            <DateOfBirth>1989-03-28T00:00:00+00:00</DateOfBirth>
+            <DateOfSigning>2014-07-07T00:00:00+00:00</DateOfSigning>
+            <Signing>Free</Signing>
+          </Player>
+          <Player>
+            <Id>2796</Id>
+            <Name>Paul Quinn </Name>
+            <Height>1.85</Height>
+            <Weight>71.2</Weight>
+            <Nationality>Scotland</Nationality>
+            <Position>Defender</Position>
+            <Team_Id>45</Team_Id>
+            <PlayerNumber>18</PlayerNumber>
+            <DateOfBirth>1985-07-21T00:00:00+00:00</DateOfBirth>
+            <DateOfSigning>2015-07-01T00:00:00+00:00</DateOfSigning>
+            <Signing>Signed</Signing>
+          </Player>
+          <Player>
+            <Id>3004</Id>
+            <Name>Daniel Rogers </Name>
+            <Nationality>Ireland</Nationality>
+            <Position>Goalkeeper</Position>
+            <Team_Id>45</Team_Id>
+            <PlayerNumber>1</PlayerNumber>
+            <DateOfBirth>1994-03-23T00:00:00+00:00</DateOfBirth>
+            <DateOfSigning>2012-01-01T00:00:00+00:00</DateOfSigning>
+            <Signing>Signed</Signing>
+          </Player>
+          <Player>
+            <Id>3007</Id>
+            <Name>Russell Anderson </Name>
+            <Height>1.85</Height>
+            <Weight>78.46</Weight>
+            <Nationality>Scotland</Nationality>
+            <Position>Defender</Position>
+            <Team_Id>45</Team_Id>
+            <PlayerNumber>4</PlayerNumber>
+            <DateOfBirth>1978-10-25T00:00:00+00:00</DateOfBirth>
+            <DateOfSigning>2012-03-29T00:00:00+00:00</DateOfSigning>
+            <Signing>Free</Signing>
+          </Player>
+          <Player>
+            <Id>3008</Id>
+            <Name>Andrew Considine </Name>
+            <Height>1.83</Height>
+            <Weight>73.47</Weight>
+            <Nationality>Scotland</Nationality>
+            <Position>Defender</Position>
+            <Team_Id>45</Team_Id>
+            <PlayerNumber>4</PlayerNumber>
+            <DateOfBirth>1987-04-01T00:00:00+00:00</DateOfBirth>
+            <DateOfSigning>2004-04-24T00:00:00+00:00</DateOfSigning>
+            <Signing>Youth</Signing>
+          </Player>
+        </XMLSOCCER.COM>
+      </GetPlayersByTeamResult>   
+    </GetPlayersByTeamResponse>
+  </Body>  
+</Envelope>
+  
+    
+      
+        

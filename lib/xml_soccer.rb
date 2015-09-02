@@ -1,4 +1,4 @@
-#require "xml_soccer/version"
+require "xml_soccer/version"
 require 'savon'
 require 'active_support/time'
 
@@ -40,6 +40,11 @@ class XmlSoccer
   def team(team: nil)
     call_api(method: "get_team", message: {"team" => team}, key: :team)
   end  
+
+  def fixture(fixture_id: nil)
+    call_api(method: "get_fixture_match_by_id", message: { "Id" => fixture_id }, 
+              key: :match)
+  end
 
   def fixtures_by_date(start_date: nil, end_date: nil)
     call_api(method: "get_fixtures_by_date_interval", 
@@ -137,6 +142,14 @@ class XmlSoccer
     call_api(method: "get_top_scorers_by_league_and_season", 
               message: {"league" => league, "seasonDateString" => season},
               key: :topscorer)
+  end
+
+  def players_by_team(team_id: nil)
+    call_api(method: "get_players_by_team", message: {"teamId" => team_id}, key: :player)
+  end
+
+  def player(player_id: nil)
+    call_api(method: "get_player_by_id", message: {"playerId" => player_id}, key: :player)
   end
 
   def odds_by_fixture(fixture_id: nil)

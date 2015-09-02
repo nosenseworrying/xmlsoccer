@@ -5,6 +5,20 @@ module HashedResponses
                             latest_match: DateTime.parse("2013-03-02T16:00:00+01:00")}
   GetAllTeams = { team_id: "4", name: "Fulham", country: "England", stadium: "Craven Cottage",home_page_url: "http://www.fulhamfc.com/", wiki_link: "http://en.wikipedia.org/wiki/Fulham_F.C."}
   
+  GetFixtureMatchById = { id: "350686", date: DateTime.parse("2015-08-29T14:00:00+00:00"), league: "Scottish Premier League", round: "6", spectators: "4702", 
+                        home_team: "Dundee FC", home_team_id: "522", away_team: "Inverness C", away_team_id: "48", time: "Finished", home_goals: "1", 
+                        away_goals: "1", home_goal_details: "90': Kane Hemmings;", away_goal_details: "60': David Raven;", home_lineup_goalkeeper: " Scott Bain", 
+                        away_lineup_goalkeeper: " Owain Fon Williams", home_lineup_defense: " Paul McGinn; Thomas Konrad; James McPake; Gary Irvine;", 
+                        away_lineup_defense: " David Raven; Ross Draper; Daniel Devine; Carl Tremarco;", home_lineup_midfield: " Paul McGowan; Kevin Thomson; Nick Ross; Nicky Low;", 
+                        away_lineup_midfield: " Greg Tansey; Iain Vigurs; Andrea Mbuyi-Mutombo; Ryan Christie; Danny Williams;", home_lineup_forward: " Kane Hemmings; Greg Stewart;", 
+                        away_lineup_forward: " Daniel Lopez;", home_lineup_substitutes: "Daryll Meggatt; Dylan Carreiro; Simon Ferry; David Mitchell; Kostadin Gadzhalov; Kevin Holt; Jesse Curran;", 
+                        away_lineup_substitutes: "Richie Foran; Jason Brown; Nathaniel Wedderburn; Lewis Horner; Liam Polworth; Ryan Esson; Calum Ferguson;", home_lineup_coach: "Paul Hartley;", 
+                        away_lineup_coach: "John Hughes;", home_sub_details: "75': in Dylan Carreiro;75': out Gary Irvine;67': out Thomas Konrad;67': in Daryll Meggatt;", 
+                        away_sub_details: "82': in Nathaniel Wedderburn;82': out Iain Vigurs;", home_team_formation: "4-4-2", away_team_formation: "4-2-3-1", location: "Dens Park", 
+                        stadium: "Dens Park", home_team_yellow_card_details: "70': Daryll Meggatt;", 
+                        away_team_yellow_card_details: "83': Daniel Devine;50': Iain Vigurs;25': Ross Draper;18': Greg Tansey;", 
+                        home_team_red_card_details: "90': Dylan Carreiro;", away_team_red_card_details: nil }
+
   GetFixturesByDateInterval = { id: "287180", date: DateTime.parse("2013-02-22T21:30:00+01:00"), league: "La Liga", round: "25", home_team: "Ath Bilbao", 
                                 home_team_id: "143", home_goals: "1", away_team: "Sociedad", away_team_id: "140",
                                 away_goals: "3", time: "Finished", location: "San Mam?s", bet_at_home: "2,20", bet_at_draw: "3,35", bet_at_away: "3,15",
@@ -198,6 +212,14 @@ GetTeam = { id: "46", name: "St Johnstone", stadium: "McDiarmid Park", website: 
 
 GetTopScorersByLeagueAndSeason = { rank: "1", name: "Kris Commons", team_name: "Celtic", team_id: "54", nationality: "Scotland",
                                     goals: "18", first_scorer: "10", penalties: "4", missed_penalties: "0" }                      
+
+GetPlayersByTeam = { id: "2523", name: "David Goodwillie ", height: "1.7", weight: "70.29", nationality: "Scotland", position: "Forward", team_id: "45", 
+                      player_number: "17", date_of_birth: DateTime.parse("1989-03-28T00:00:00+00:00"), 
+                      date_of_signing: DateTime.parse("2014-07-07T00:00:00+00:00"), signing: "Free"}
+
+GetPlayerById = { id: "15435", name: "Cem Felek ", nationality: "Germany", position: "Midfielder", team_id: "45", player_number: "47", 
+                  date_of_birth: DateTime.parse("1996-05-12T00:00:00+00:00"), date_of_signing: DateTime.parse("2014-07-01T00:00:00+00:00"), 
+                  signing: "Signed" }
 
 GetOddsByFixtureMatchId = { id: "139429", fixture_match_id: "324725", date_create: DateTime.parse("2013-12-30T02:56:32.487-08:00"),
                             bwin_home: "2.85", bwin_url: "https://www.bwin.com/", bwin_away: "2.30", bwin_draw: "3.20" }

@@ -1,5 +1,5 @@
 # -*- encoding: utf-8 -*-
-#require File.expand_path('../lib/xml_soccer/version', __FILE__)
+require File.expand_path('../lib/xml_soccer/version', __FILE__)
 
 Gem::Specification.new do |gem|
   gem.authors       = ["Matt Augustine"]
@@ -23,5 +23,5 @@ Gem::Specification.new do |gem|
   gem.test_files    = gem.files.grep(%r{^(test|spec|features)/})
   gem.name          = "xml_soccer"
   gem.require_paths = ["lib"]
-  gem.version       = "0.0.4"
+  gem.version       = XmlSoccer::VERSION
 end

@@ -1,3 +1,3 @@
-#class XmlSoccer
-#  VERSION = "0.0.1"
-#end
+class XmlSoccer
+ VERSION = "0.0.5"
+end

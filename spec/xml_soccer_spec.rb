@@ -86,6 +86,24 @@ describe XmlSoccer do
     
   end
 
+  describe '#fixture' do
+    before do
+      message = { "ApiKey" => "testkey", "Id" => "350686" }
+      fixture = File.read("spec/fixtures/get_fixture_match_by_id.xml")
+      response = {code: 200, headers: {}, body: fixture}
+      savon.expects(:get_fixture_match_by_id).with(message: message).returns(response)
+      @array = @client.fixture(fixture_id: "350686")
+    end
+
+    it 'returns an array' do
+      expect(@array).to be_an_instance_of(Array)
+    end
+
+    it 'returns expected fixture' do
+      expect(@array).to include(HashedResponses::GetFixtureMatchById)
+    end
+  end
+
   describe '#fixtures_by_date' do
     before do
       message = {"ApiKey" => "testkey",
@@ -403,6 +421,42 @@ describe XmlSoccer do
       expect(@array).to include(HashedResponses::GetTopScorersByLeagueAndSeason)
     end
     
+  end
+
+  describe '#players_by_team' do
+    before do
+      message = {"ApiKey" => "testkey", "teamId" => "45" }
+      fixture = File.read("spec/fixtures/get_players_by_team.xml")    
+      response = {code: 200, headers: {}, body: fixture}
+      savon.expects(:get_players_by_team).with(message: message).returns(response)
+      @array = @client.players_by_team(team_id: "45")
+    end
+
+    it 'returns an array' do
+      expect(@array).to be_an_instance_of(Array)
+    end
+    
+    it 'returns expected players' do
+      expect(@array).to include(HashedResponses::GetPlayersByTeam)
+    end    
+  end
+
+  describe '#player' do
+    before do
+      message = {"ApiKey" => "testkey", "playerId" => "15435" }
+      fixture = File.read("spec/fixtures/get_player_by_id.xml")    
+      response = {code: 200, headers: {}, body: fixture}
+      savon.expects(:get_player_by_id).with(message: message).returns(response)
+      @array = @client.player(player_id: "15435")
+    end
+
+    it 'returns an array' do
+      expect(@array).to be_an_instance_of(Array)
+    end
+    
+    it 'returns expected player' do
+      expect(@array).to include(HashedResponses::GetPlayerById)
+    end    
   end
 
   describe '#odds_by_fixture' do

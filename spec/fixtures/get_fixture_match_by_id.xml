@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Envelope>
+  <Body>
+    <GetFixtureMatchByIdResponse>
+      <GetFixtureMatchByIdResult>
+        <XMLSOCCER.COM>
+          <Match>
+            <Id>350686</Id>
+            <Date>2015-08-29T14:00:00+00:00</Date>
+            <League>Scottish Premier League</League>
+            <Round>6</Round>
+            <Spectators>4702</Spectators>
+            <HomeTeam>Dundee FC</HomeTeam>
+            <HomeTeam_Id>522</HomeTeam_Id>
+            <AwayTeam>Inverness C</AwayTeam>
+            <AwayTeam_Id>48</AwayTeam_Id>
+            <Time>Finished</Time>
+            <HomeGoals>1</HomeGoals>
+            <AwayGoals>1</AwayGoals>
+            <HomeGoalDetails>90': Kane Hemmings;</HomeGoalDetails>
+            <AwayGoalDetails>60': David Raven;</AwayGoalDetails>
+            <HomeLineupGoalkeeper> Scott Bain</HomeLineupGoalkeeper>
+            <AwayLineupGoalkeeper> Owain Fon Williams</AwayLineupGoalkeeper>
+            <HomeLineupDefense> Paul McGinn; Thomas Konrad; James McPake; Gary Irvine;</HomeLineupDefense>
+            <AwayLineupDefense> David Raven; Ross Draper; Daniel Devine; Carl Tremarco;</AwayLineupDefense>
+            <HomeLineupMidfield> Paul McGowan; Kevin Thomson; Nick Ross; Nicky Low;</HomeLineupMidfield>
+            <AwayLineupMidfield> Greg Tansey; Iain Vigurs; Andrea Mbuyi-Mutombo; Ryan Christie; Danny Williams;</AwayLineupMidfield>
+            <HomeLineupForward> Kane Hemmings; Greg Stewart;</HomeLineupForward>
+            <AwayLineupForward> Daniel Lopez;</AwayLineupForward>
+            <HomeLineupSubstitutes>Daryll Meggatt; Dylan Carreiro; Simon Ferry; David Mitchell; Kostadin Gadzhalov; Kevin Holt; Jesse Curran;</HomeLineupSubstitutes>
+            <AwayLineupSubstitutes>Richie Foran; Jason Brown; Nathaniel Wedderburn; Lewis Horner; Liam Polworth; Ryan Esson; Calum Ferguson;</AwayLineupSubstitutes>
+            <HomeLineupCoach>Paul Hartley;</HomeLineupCoach>
+            <AwayLineupCoach>John Hughes;</AwayLineupCoach>
+            <HomeSubDetails>75': in Dylan Carreiro;75': out Gary Irvine;67': out Thomas Konrad;67': in Daryll Meggatt;</HomeSubDetails>
+            <AwaySubDetails>82': in Nathaniel Wedderburn;82': out Iain Vigurs;</AwaySubDetails>
+            <HomeTeamFormation>4-4-2</HomeTeamFormation>
+            <AwayTeamFormation>4-2-3-1</AwayTeamFormation>
+            <Location>Dens Park</Location>
+            <Stadium>Dens Park</Stadium>
+            <HomeTeamYellowCardDetails>70': Daryll Meggatt;</HomeTeamYellowCardDetails>
+            <AwayTeamYellowCardDetails>83': Daniel Devine;50': Iain Vigurs;25': Ross Draper;18': Greg Tansey;</AwayTeamYellowCardDetails>
+            <HomeTeamRedCardDetails>90': Dylan Carreiro;</HomeTeamRedCardDetails>
+            <AwayTeamRedCardDetails />
+          </Match>
+        </XMLSOCCER.COM>
+      </GetFixtureMatchByIdResult>            
+    </GetFixtureMatchByIdResponse>
+  </Body>
+</Envelope>     
